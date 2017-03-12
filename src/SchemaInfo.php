@@ -119,7 +119,7 @@ class SchemaInfo
     const OPT_FORMAT_HOST_NAME                  = false; // Whether "host-name" is a predefined format (d03§5.23, !d04, !d05)
     const OPT_FORMAT_HOSTNAME                   = true;  // whether "hostname" is a predefined format (!d03, d04v§7.3.3, d05v§7.3.3)
 
-    /** @var int Spec version **/
+    /** @var int Spec version */
     protected $specVersion = self::SPEC_NONE;
 
     /** @var array Feature matrix */
