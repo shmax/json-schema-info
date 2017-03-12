@@ -16,10 +16,11 @@ class SchemaInfo
     const SPEC_DRAFT_04 = 2;
     const SPEC_DRAFT_05 = 3;
 
-    const SPEC_DRAFT_03_URI = 'http://json-schema.org/draft-03/schema';
-    const SPEC_DRAFT_04_URI = 'http://json-schema.org/draft-04/schema';
-    const SPEC_DRAFT_05_URI = 'http://json-schema.org/draft-05/schema';
+    const SPEC_DRAFT_03_URI = 'http://json-schema.org/draft-03/schema#';
+    const SPEC_DRAFT_04_URI = 'http://json-schema.org/draft-04/schema#';
+    const SPEC_DRAFT_05_URI = 'http://json-schema.org/draft-05/schema#';
 
+    // primitive types
     const OPT_TYPE_STRING       = true;  // primitive type string is allowed
     const OPT_TYPE_NUMBER       = true;  // primitive type number is allowed
     const OPT_TYPE_INTEGER      = false; // primitive type integer is allowed
