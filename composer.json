@@ -1,0 +1,39 @@
+{
+    "name": "erayd/json-schema-info",
+    "description": "Provides information about a JSON schema spec",
+    "keywords": ["json", "schema", "json-schema", "spec", "info", "information"],
+    "homepage": "https://github.com/erayd/json-schema-info",
+    "type": "library",
+    "require": {
+        "php": "^5.3.0 || ^7.0.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^5.7",
+        "squizlabs/php_codesniffer": "^2.7",
+        "satooshi/php-coveralls": "^1.0.1"
+    },
+    "license": "ISC",
+    "authors": [
+        {
+            "name": "Steve Gilberd",
+            "email": "steve@erayd.net"
+        }
+    ],
+    "minimum-stability": "stable",
+    "autoload": {
+        "psr-4": {
+            "Erayd\\JsonSchemaInfo\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Erayd\\JsonSchemaInfo\\Tests\\": "tests/Tests"
+        }
+    },
+    "scripts": {
+        "style-check": "phpcs --standard=PSR2 src && phpcs --standard=PSR2 tests",
+        "style-fix": "phpcbf --standard=PSR2 src && phpcbf --standard=PSR2 tests",
+        "test": "phpunit",
+        "coverage": "phpunit --coverage-text"
+    }
+}
