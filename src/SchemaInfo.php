@@ -46,6 +46,7 @@ class SchemaInfo
     // basic properties
     const OPT_SELF_DESCRIPTIVE_SCHEMA           = false; // Whether $schema must validate against itself (draft-04 §6.1)
     const OPT_DEFINITIONS                       = true;  // Whether "definitions" is supported (!d03, d04v§5.5.7, d05v§5.26)
+    const OPT_NULL_BYTE_IN_STRING               = false; // Whether strings explicitly may contain nulls (\u0000) (!d03, !d04, d05v§3.1)
 
     // metadata
     const OPT_META_TITLE                        = true;  // Whether "title" is supported (d03§5.21, d04v§6.1, d05v§6.1)
@@ -283,6 +284,7 @@ class SchemaInfo
     {
         $this->setOptions(array(
             'OPT_FORMAT_URIREF'                     => true,  // d05v§7.3.7
+            'OPT_NULL_BYTE_IN_STRING'               => true,  // d05v§3.1
         ));
     }
 }
