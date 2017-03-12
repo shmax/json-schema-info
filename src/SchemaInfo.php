@@ -32,7 +32,15 @@ class SchemaInfo
     const OPT_TYPE_OTHER        = false; // other, non-spec primitive types are allowed
 
     // basic properties
-    const OPT_SELF_DESCRIPTIVE_SCHEMA = false; // Whether $schema must validate against itself
+    const OPT_SELF_DESCRIPTIVE_SCHEMA   = false; // Whether $schema must validate against itself
+
+    // numeric constraints
+    const OPT_CONSTRAINT_DIVISIBLE_BY       = false; // Whether "divisibleBy" is supported
+    const OPT_CONSTRAINT_MULTIPLE_OF        = true;  // Whether "multipleOf" is supported
+    const OPT_CONSTRAINT_MAXIMUM            = true;  // Whether "maxumum" is supported
+    const OPT_CONSTRAINT_EXCLUSIVE_MAXUMUM  = true;  // Whether "exclusiveMaximum" is supported
+    const OPT_CONSTRAINT_MINIMUM            = true;  // Whether "minimum" is supported
+    const OPT_CONSTRAINT_EXCLUSIVE_MINIMUM  = true;  // Whether "exclusiveMinimum" is supported
 
     /** @var int Spec version **/
     protected $specVersion = self::SPEC_NONE;
@@ -148,9 +156,11 @@ class SchemaInfo
     protected function setDraft03()
     {
         $this->setOptions(array(
-            'OPT_TYPE_INTEGER'  => true,
-            'OPT_TYPE_ANY'      => true,
-            'OPT_TYPE_OTHER'    => true,
+            'OPT_TYPE_INTEGER'              => true,
+            'OPT_TYPE_ANY'                  => true,
+            'OPT_TYPE_OTHER'                => true,
+            'OPT_CONSTRAINT_DIVISIBLE_BY'   => true,
+            'OPT_CONSTRAINT_MULTIPLE_OF'    => false,
         ));
     }
 
@@ -160,8 +170,8 @@ class SchemaInfo
     protected function setDraft04()
     {
         $this->setOptions(array(
-            'OPT_TYPE_INTEGER'  => true,
-            'OPT_SELF_DESCRIPTIVE_SCHEMA' => true,
+            'OPT_TYPE_INTEGER'              => true,
+            'OPT_SELF_DESCRIPTIVE_SCHEMA'   => true,
         ));
     }
 
