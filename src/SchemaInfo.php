@@ -210,8 +210,8 @@ class SchemaInfo
             'OPT_CONSTRAINT_MULTIPLE_OF'            => false, // not present in draft-03, draft-03 implements as "divisibleBy" (§5.24)
             'OPT_CONSTRAINT_MAX_PROPERTIES'         => false, // not present in draft-03
             'OPT_CONSTRAINT_MIN_PROPERTIES'         => false, // not present in draft-03
-            'OPT_CONSTRAINT_REQUIRED_BOOLEAN'       => true,  // d03§5.7 (changes from string to array in draft-04)
-            'OPT_CONSTRAINT_REQUIRED_ARRAY'         => false, // d03§5.7 (changes from string to array in draft-04)
+            'OPT_CONSTRAINT_REQUIRED_BOOLEAN'       => true,  // d03§5.7 (changes from boolean to array in draft-04)
+            'OPT_CONSTRAINT_REQUIRED_ARRAY'         => false, // d03§5.7 (changes from boolean to array in draft-04)
             'OPT_CONSTRAINT_DEPENDENCIES_SIMPLE'    => true,  // d03§5.8
             'OPT_CONSTRAINT_ALL_OF'                 => false, // not present in draft-03
             'OPT_CONSTRAINT_ANY_OF'                 => false, // not present in draft-03
