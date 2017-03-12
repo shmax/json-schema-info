@@ -28,7 +28,7 @@ class SchemaInfoTest extends \PHPUnit\Framework\TestCase
     public function testGetSpecForURI($uri, $spec, $isValid = true)
     {
         if (!$isValid) {
-            $this->expectException('\InvalidArgumentException');
+            $this->setExpectedException('\InvalidArgumentException');
         }
 
         $uriSchemaInfo = SchemaInfo::getSpecForURI($uri);
@@ -57,7 +57,7 @@ class SchemaInfoTest extends \PHPUnit\Framework\TestCase
         $s = new SchemaInfo(SchemaInfo::SPEC_DRAFT_04_URI);
 
         if (!$isValid) {
-            $this->expectException('\InvalidArgumentException');
+            $this->setExpectedException('\InvalidArgumentException');
         }
 
         $this->assertEquals($defaultValue, $s->$name);
@@ -77,13 +77,13 @@ class SchemaInfoTest extends \PHPUnit\Framework\TestCase
 
     public function testUnknownSchemaSpec()
     {
-        $this->expectException('\InvalidArgumentException');
+        $this->setExpectedException('\InvalidArgumentException');
         new SchemaInfo(SchemaInfo::SPEC_NONE);
     }
 
     public function testUnknownSchemaSpecURI()
     {
-        $this->expectException('\InvalidArgumentException');
+        $this->setExpectedException('\InvalidArgumentException');
         new SchemaInfo('http://example.com/fake/schema');
     }
 }
