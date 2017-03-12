@@ -8,6 +8,7 @@ namespace Erayd\JsonSchemaInfo;
  * @package json-schema-info
  * @license ISC
  * @author Steve Gilberd <steve@erayd.net>
+ * @copyright (c) 2017 Erayd LTD
  */
 class SchemaInfo
 {
@@ -126,6 +127,10 @@ class SchemaInfo
     protected $matrix = array();
 
     /**
+     * Create a new SchemaInfo instance for the provided spec
+     *
+     * @api
+     *
      * @param mixed $spec URI string or spec int constant
      */
     public function __construct($spec)
@@ -153,6 +158,11 @@ class SchemaInfo
 
     /**
      * Get the status of an option
+     *
+     * @api
+     *
+     * @param string $optionName
+     * @return mixed
      */
     public function __get($optionName)
     {
@@ -168,6 +178,8 @@ class SchemaInfo
 
     /**
      * Get the spec version by URI
+     *
+     * @api
      *
      * @param string $uri
      * @return int
@@ -196,10 +208,11 @@ class SchemaInfo
     /**
      * Get the constant name for a given camelCase option
      *
-     * @param string $option Option name (camelCase or CONSTANT_CASE)
+     * @param string $optionName Option name (camelCase or CONSTANT_CASE)
+     * @param mixed $defaultValue Variable into which the default value should be inserted
      * @return string
      */
-    public static function getOptionConstant($optionName, &$defaultValue = null)
+    protected static function getOptionConstant($optionName, &$defaultValue = null)
     {
         $words = preg_split('/(?<=[a-z0-9])(?=[A-Z])|(?<=[A-Z])(?=[A-Z][a-z0-9])/', $optionName);
         array_walk($words, function (&$item) {
