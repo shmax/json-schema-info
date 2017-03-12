@@ -55,6 +55,9 @@ class SchemaInfo
     const OPT_META_DEFAULT                      = true;  // Whether "default" is supported (d03§5.20, d04v§6.2, d05§6.2)
     const OPT_DEFAULT_AS_FALLBACK_VALUE         = false; // Whether "default" is intended as the value for an undefined instance
                                                          //     (d03§5.20, d04v§6.2.2, d05v§6.2)
+    // type constraints
+    const OPT_CONSTRAINT_DISALLOW               = false; // Whether "disallow" is supported (d03§5.25, !d04, !d05)
+    const OPT_CONSTRAINT_EXTENDS                = false; // Whether "extends" is supported (d03§5.26, !d04, !d05)
 
     // numeric constraints
     const OPT_CONSTRAINT_DIVISIBLE_BY           = false; // Whether "divisibleBy" is supported (d03§5.24)
@@ -88,7 +91,6 @@ class SchemaInfo
     const OPT_CONSTRAINT_DEPENDENCIES           = true;  // Whether "dependencies" is supported (d03§5.8, d04v§5.4.5, d05v§5.19)
     const OPT_CONSTRAINT_DEPENDENCIES_SIMPLE    = false; // Whether "dependencies" may directly list a string property, or an array of
                                                          //     string properties (d03§5.8, d04v§5.4.5.1, d05v§5.19)
-
     // generic constraints
     const OPT_CONSTRAINT_ENUM                   = true;  // Whether "enum" is supported (d03§5.19, d04v§5.5.1, d05v§5.20)
     const OPT_CONSTRAINT_UNIQUE_ENUM            = false; // Whether items in "enum" array MUST be unique (!d03, d04v§5.5.1.1, d05v§5.20)
@@ -250,6 +252,8 @@ class SchemaInfo
     protected function setDraft03()
     {
         $this->setOptions(array(
+            'OPT_CONSTRAINT_DISALLOW'               => true,  // d03§5.25
+            'OPT_CONSTRAINT_EXTENDS'                => true,  // d03§5.26
             'OPT_TYPE_INTEGER'                      => true,  // d03§5.1
             'OPT_TYPE_ANY'                          => true,  // d03§5.1
             'OPT_TYPE_OTHER'                        => true,  // d03§5.1
