@@ -93,7 +93,30 @@ class SchemaInfo
     const OPT_CONSTRAINT_ANY_OF                 = true;  // Whether "anyOf" is supported (!d03, d04v§5.5.4, d05v§5.23)
     const OPT_CONSTRAINT_ONE_OF                 = true;  // Whether "oneOf" is supported (!d03, d04v§5.5.5, d05v§5.24)
     const OPT_CONSTRAINT_NOT                    = true;  // Whether "not" is supported (!d03, d04v§5.5.6, d05v§5.25)
+    const OPT_CONSTRAINT_FORMAT                 = true;  // Whether or not "format" is supported (d03§5.23, d04v§7, d05v§7)
 
+    // format constraints
+    const OPT_FORMAT_OPTIONAL                   = true;  // Whether validating "format" is optional (d03§5.23, d04v§7.2, d05§7.2)
+    const OPT_FORMAT_PROVIDE_DISABLE_OPTION     = true;  // Whether validators SHOULD provide an option to ignore "format"
+                                                         // during validation (!d03, d04v§7.2, d05v§7.2)
+    const OPT_FORMAT_CUSTOM_SCHEMA_URI          = false; // Whether custom formats may be expressed as a schema URI, such schema being
+                                                         //     suitable for validation of the format (d03§5.23, !d04, !d05)
+    const OPT_FORMAT_DATE_TIME                  = true;  // Whether "date-time" is a predefined format (d03§5.23, d04v§7.3.1, d05§7.3.1)
+    const OPT_FORMAT_DATE                       = false; // Whether "date" is a predefined format (d03§5.23, !d04, !d05)
+    const OPT_FORMAT_TIME                       = false; // Whether "time" is a predefined format (d03§5.23, !d04, !d05)
+    const OPT_FORMAT_UTC_MS                     = false; // Whether "utc-millisec" is a predefined format (d03§5.23, !d04, !d05)
+    const OPT_FORMAT_REGEX                      = false; // Whether "regex" is a predefined format (d03§5.23, !d04, !d05)
+    const OPT_FORMAT_COLOR                      = false; // Whether "color" is a predefined format (d03§5.23, !d04, !d05)
+    const OPT_FORMAT_STYLE                      = false; // Whether "style" is a predefined format (d03§5.23, !d04, !d05)
+    const OPT_FORMAT_PHONE                      = false; // Whether "phone" is a predefined format (d03§5.23, !d04, !d05)
+    const OPT_FORMAT_URI                        = true;  // Whether "uri" is a predefined format (d03§5.23, d04v§7.3.6, d05v§7.3.6)
+    const OPT_FORMAT_URIREF                     = false; // Whether "uriref" is a predefined format (!d03, !d05, d05v§7.3.7)
+    const OPT_FORMAT_EMAIL                      = true;  // Whether "email" is a predefined format (d03§5.23, d04v§7.3.2, d05v§7.3.2)
+    const OPT_FORMAT_IP_ADDRESS                 = false; // Whether "ip-address is a predefined format (d03§5.23, !d04, !d05)
+    const OPT_FORMAT_IPV4                       = true;  // Whether "ipv4" is a predefined format (!d03, d04v§7.3.4, d05v§7.3.4)
+    const OPT_FORMAT_IPV6                       = true;  // Whether "ipv6" is a predefined format (d03§5.23, d04v§7.3.5, d05v§7.3.5)
+    const OPT_FORMAT_HOST_NAME                  = false; // Whether "host-name" is a predefined format (d03§5.23, !d04, !d05)
+    const OPT_FORMAT_HOSTNAME                   = true;  // whether "hostname" is a predefined format (!d03, d04v§7.3.3, d05v§7.3.3)
 
     /** @var int Spec version **/
     protected $specVersion = self::SPEC_NONE;
@@ -225,6 +248,19 @@ class SchemaInfo
             'OPT_CONSTRAINT_NOT'                    => false, // not present in draft-03
             'OPT_DEFINITIONS'                       => false, // not present in draft-03
             'OPT_DEFAULT_AS_FALLBACK_VALUE'         => true,  // d03§5.20
+            'OPT_FORMAT_PROVIDE_DISABLE_OPTION'     => false, // not present in draft-03
+            'OPT_FORMAT_DATE'                       => true,  // d03§5.23
+            'OPT_FORMAT_TIME'                       => true,  // d03§5.23
+            'OPT_FORMAT_UTC_MS'                     => true,  // d03§5.23
+            'OPT_FORMAT_REGEX'                      => true,  // d03§5.23
+            'OPT_FORMAT_COLOR'                      => true,  // d03§5.23
+            'OPT_FORMAT_STYLE'                      => true,  // d03§5.23
+            'OPT_FORMAT_PHONE'                      => true,  // d03§5.23
+            'OPT_FORMAT_IP_ADDRESS'                 => true,  // d03§5.23 (renamed to "ipv4" in draft-04)
+            'OPT_FORMAT_IPV4'                       => false, // not present in draft-03, draft-03 implements as "ip-address" (§5.23)
+            'OPT_FORMAT_HOST_NAME'                  => true,  // d03§5.23 (renamed to "hostname" in draft-04)
+            'OPT_FORMAT_HOSTNAME'                   => false, // not present in draft-03, draft-03 implements as "host-name" (§5.23)
+            'OPT_FORMAT_CUSTOM_SCHEMA_URI'          => true,  // d03§5.23
         ));
     }
 
@@ -234,9 +270,9 @@ class SchemaInfo
     protected function setDraft04()
     {
         $this->setOptions(array(
-            'OPT_TYPE_INTEGER'              => true,  // d04c§3.5
-            'OPT_SELF_DESCRIPTIVE_SCHEMA'   => true,  // d04c§6.1
-            'OPT_CONSTRAINT_UNIQUE_ENUM'    => true,  // d04v§5.5.1.1
+            'OPT_TYPE_INTEGER'                      => true,  // d04c§3.5
+            'OPT_SELF_DESCRIPTIVE_SCHEMA'           => true,  // d04c§6.1
+            'OPT_CONSTRAINT_UNIQUE_ENUM'            => true,  // d04v§5.5.1.1
         ));
     }
 
@@ -246,7 +282,7 @@ class SchemaInfo
     protected function setDraft05()
     {
         $this->setOptions(array(
-
+            'OPT_FORMAT_URIREF'                     => true,  // d05v§7.3.7
         ));
     }
 }
