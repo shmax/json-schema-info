@@ -63,6 +63,30 @@ class SchemaInfoTest extends \PHPUnit\Framework\TestCase
         $this->assertEquals($defaultValue, $s->$name);
     }
 
+    public function dataCheckConstantsAreDefined()
+    {
+        return array(
+            array(SchemaInfo::SPEC_DRAFT_03),
+            array(SchemaInfo::SPEC_DRAFT_04),
+            array(SchemaInfo::SPEC_DRAFT_05)
+        );
+    }
+
+    /** @dataProvider dataCheckConstantsAreDefined **/
+    public function testCheckConstantsAreDefined($specVersion)
+    {
+        $s = new SchemaInfo($specVersion);
+        $r = new \ReflectionObject($s);
+        $m = $r->getProperty('matrix');
+        $m->setAccessible(true);
+        foreach ($m->getValue($s) as $option => $value) {
+            $this->assertTrue(
+                defined('\Erayd\JsonSchemaInfo\SchemaInfo::' . $option),
+                $option . ' is not a valid option constant'
+            );
+        }
+    }
+
     public function testGetOptionDraft03()
     {
         $s = new SchemaInfo(SchemaInfo::SPEC_DRAFT_03);
