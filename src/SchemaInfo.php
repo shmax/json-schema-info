@@ -45,6 +45,7 @@ class SchemaInfo
 
     // basic properties
     const OPT_SELF_DESCRIPTIVE_SCHEMA           = false; // Whether $schema must validate against itself (draft-04 §6.1)
+    const OPT_DEFINITIONS                       = true;  // Whether "definitions" is supported (!d03, d04v§5.5.7, d05v§5.26)
 
     // numeric constraints
     const OPT_CONSTRAINT_DIVISIBLE_BY           = false; // Whether "divisibleBy" is supported (d03§5.24)
@@ -78,6 +79,15 @@ class SchemaInfo
     const OPT_CONSTRAINT_DEPENDENCIES           = true;  // Whether "dependencies" is supported (d03§5.8, d04v§5.4.5, d05v§5.19)
     const OPT_CONSTRAINT_DEPENDENCIES_SIMPLE    = false; // Whether "dependencies" may directly list a string property, or an array of
                                                          //     string properties (d03§5.8, d04v§5.4.5.1, d05v§5.19)
+
+    // generic constraints
+    const OPT_CONSTRAINT_ENUM                   = true;  // Whether "enum" is supported (d03§5.19, d04v§5.5.1, d05v§5.20)
+    const OPT_CONSTRAINT_UNIQUE_ENUM            = false; // Whether items in "enum" array MUST be unique (!d03, d04v§5.5.1.1, d05v§5.20)
+    const OPT_CONSTRAINT_ALL_OF                 = true;  // Whether "allOf" is supported (!d03, d04v§5.5.3, d05v§5.22)
+    const OPT_CONSTRAINT_ANY_OF                 = true;  // Whether "anyOf" is supported (!d03, d04v§5.5.4, d05v§5.23)
+    const OPT_CONSTRAINT_ONE_OF                 = true;  // Whether "oneOf" is supported (!d03, d04v§5.5.5, d05v§5.24)
+    const OPT_CONSTRAINT_NOT                    = true;  // Whether "not" is supported (!d03, d04v§5.5.6, d05v§5.25)
+
 
     /** @var int Spec version **/
     protected $specVersion = self::SPEC_NONE;
@@ -203,6 +213,11 @@ class SchemaInfo
             'OPT_CONSTRAINT_REQUIRED_BOOLEAN'       => true,  // d03§5.7 (changes from string to array in draft-04)
             'OPT_CONSTRAINT_REQUIRED_ARRAY'         => false, // d03§5.7 (changes from string to array in draft-04)
             'OPT_CONSTRAINT_DEPENDENCIES_SIMPLE'    => true,  // d03§5.8
+            'OPT_CONSTRAINT_ALL_OF'                 => false, // not present in draft-03
+            'OPT_CONSTRAINT_ANY_OF'                 => false, // not present in draft-03
+            'OPT_CONSTRAINT_ONE_OF'                 => false, // not present in draft-03
+            'OPT_CONSTRAINT_NOT'                    => false, // not present in draft-03
+            'OPT_DEFINITIONS'                       => false, // not present in draft-03
         ));
     }
 
@@ -214,6 +229,7 @@ class SchemaInfo
         $this->setOptions(array(
             'OPT_TYPE_INTEGER'              => true,  // d04c§3.5
             'OPT_SELF_DESCRIPTIVE_SCHEMA'   => true,  // d04c§6.1
+            'OPT_CONSTRAINT_UNIQUE_ENUM'    => true,  // d04v§5.5.1.1
         ));
     }
 
