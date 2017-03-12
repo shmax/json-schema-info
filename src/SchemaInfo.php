@@ -47,6 +47,12 @@ class SchemaInfo
     const OPT_SELF_DESCRIPTIVE_SCHEMA           = false; // Whether $schema must validate against itself (draft-04 §6.1)
     const OPT_DEFINITIONS                       = true;  // Whether "definitions" is supported (!d03, d04v§5.5.7, d05v§5.26)
 
+    // metadata
+    const OPT_META_TITLE                        = true;  // Whether "title" is supported (d03§5.21, d04v§6.1, d05v§6.1)
+    const OPT_META_DEFAULT                      = true;  // Whether "default" is supported (d03§5.20, d04v§6.2, d05§6.2)
+    const OPT_DEFAULT_AS_FALLBACK_VALUE         = false; // Whether "default" is intended as the value for an undefined instance
+                                                         //     (d03§5.20, d04v§6.2.2, d05v§6.2)
+
     // numeric constraints
     const OPT_CONSTRAINT_DIVISIBLE_BY           = false; // Whether "divisibleBy" is supported (d03§5.24)
     const OPT_CONSTRAINT_MULTIPLE_OF            = true;  // Whether "multipleOf" is supported (d04v§5.1.1, d05v§5.1)
@@ -218,6 +224,7 @@ class SchemaInfo
             'OPT_CONSTRAINT_ONE_OF'                 => false, // not present in draft-03
             'OPT_CONSTRAINT_NOT'                    => false, // not present in draft-03
             'OPT_DEFINITIONS'                       => false, // not present in draft-03
+            'OPT_DEFAULT_AS_FALLBACK_VALUE'         => true,  // d03§5.20
         ));
     }
 
