@@ -13,17 +13,18 @@ namespace Erayd\JsonSchemaInfo;
 class SchemaInfo
 {
     // internal spec identifiers
-    const SPEC_NONE                             = 0;
+    const SPEC_NONE                             = 0; // no spec available
+    const SPEC_PERMISSIVE                       = 1; // most permissive superset of options possible
 
-    const SPEC_DRAFT_03                         = 1;
+    const SPEC_DRAFT_03                         = 3;
     // d03 (combined) https://tools.ietf.org/html/draft-zyp-json-schema-03
 
-    const SPEC_DRAFT_04                         = 2;
+    const SPEC_DRAFT_04                         = 4;
     // d04c (core) https://tools.ietf.org/html/draft-zyp-json-schema-04
     // d04v (validation) https://tools.ietf.org/html/draft-fge-json-schema-validation-00
     // d04h (hyper-schema) https://tools.ietf.org/html/draft-luff-json-hyper-schema-00
 
-    const SPEC_DRAFT_05                         = 3;
+    const SPEC_DRAFT_05                         = 5;
     // d05c (core) https://tools.ietf.org/html/draft-wright-json-schema-00
     // d05v (validation) https://tools.ietf.org/html/draft-wright-json-schema-validation-00
     // d05h (hyper-schema) https://tools.ietf.org/html/draft-wright-json-schema-hyperschema-00
@@ -150,6 +151,9 @@ class SchemaInfo
                 break;
             case self::SPEC_DRAFT_03:
                 $this->setDraft03();
+                break;
+            case self::SPEC_PERMISSIVE:
+                $this->setPermissive();
                 break;
             default:
                 throw new \InvalidArgumentException('Unknown schema spec');
@@ -298,6 +302,32 @@ class SchemaInfo
         $this->setOptions(array(
             'OPT_FORMAT_URIREF'                     => true,  // d05v§7.3.7
             'OPT_NULL_BYTE_IN_STRING'               => true,  // d05v§3.1
+        ));
+    }
+
+    /**
+     * Apply the most permissive set of options possible
+     */
+    protected function setPermissive()
+    {
+        // start by setting every available option to true
+        $r = new \ReflectionClass('\Erayd\JsonSchemaInfo\SchemaInfo');
+        foreach ($r->getConstants() as $option => $value) {
+            // ignore anything that isn't an option
+            if (substr($option, 0, 4) !== 'OPT_') {
+                continue;
+            }
+            // set all boolean values to true
+            if (is_bool($value) && !$value) {
+                $this->matrix[$option] = true;
+            }
+        }
+
+        // turn off all restricting options
+        $this->setOptions(array(
+            'OPT_SELF_DESCRIPTIVE_SCHEMA'           => false, // don't require self-descriptive schemas
+            'OPT_CONSTRAINT_UNIQUE_ENUM'            => false, // don't require enum options to be unique
+            'OPT_FORMAT_PROVIDE_DISABLE_OPTION'     => false, // don't require validators to provide a disable option for "format"
         ));
     }
 }

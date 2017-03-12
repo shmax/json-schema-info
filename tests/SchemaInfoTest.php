@@ -66,6 +66,7 @@ class SchemaInfoTest extends \PHPUnit\Framework\TestCase
     public function dataCheckConstantsAreDefined()
     {
         return array(
+            array(SchemaInfo::SPEC_PERMISSIVE),
             array(SchemaInfo::SPEC_DRAFT_03),
             array(SchemaInfo::SPEC_DRAFT_04),
             array(SchemaInfo::SPEC_DRAFT_05)
