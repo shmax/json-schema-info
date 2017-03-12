@@ -42,6 +42,11 @@ class SchemaInfo
     const OPT_CONSTRAINT_MINIMUM            = true;  // Whether "minimum" is supported
     const OPT_CONSTRAINT_EXCLUSIVE_MINIMUM  = true;  // Whether "exclusiveMinimum" is supported
 
+    // string constraints
+    const OPT_CONSTRAINT_MIN_LENGTH         = true;  // Whether "minLength" is supported
+    const OPT_CONSTRAINT_MAX_LENGTH         = true;  // Whether "maxLength" is supported
+    const OPT_CONSTRAINT_PATTERN            = true;  // Whether "pattern" is supported
+
     /** @var int Spec version **/
     protected $specVersion = self::SPEC_NONE;
 
