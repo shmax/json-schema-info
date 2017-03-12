@@ -52,6 +52,7 @@ class SchemaInfo
 
     // metadata
     const OPT_META_TITLE                        = true;  // Whether "title" is supported (d03§5.21, d04v§6.1, d05v§6.1)
+    const OPT_META_DESCRIPTION                  = true;  // Whether "description" is supported (d03§5.22, d04v§6.1, d05v§6.1)
     const OPT_META_DEFAULT                      = true;  // Whether "default" is supported (d03§5.20, d04v§6.2, d05§6.2)
     const OPT_DEFAULT_AS_FALLBACK_VALUE         = false; // Whether "default" is intended as the value for an undefined instance
                                                          //     (d03§5.20, d04v§6.2.2, d05v§6.2)
