@@ -31,8 +31,8 @@
         }
     },
     "scripts": {
-        "style-check": "phpcs --standard=PSR2 src && phpcs --standard=PSR2 tests",
-        "style-fix": "phpcbf --standard=PSR2 src && phpcbf --standard=PSR2 tests",
+        "style-check": "phpcs --standard=ruleset.xml src && phpcs --standard=ruleset.xml tests",
+        "style-fix": "phpcbf --standard=ruleset.xml src && phpcbf --standard=ruleset.xml tests",
         "test": "phpunit",
         "coverage": "phpunit --coverage-text"
     }
