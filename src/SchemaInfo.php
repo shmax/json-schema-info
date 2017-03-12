@@ -116,7 +116,7 @@ class SchemaInfo
      */
     public function __get($optionName)
     {
-        $defaultValue;
+        $defaultValue = null;
         $option = self::getOptionConstant($optionName, $defaultValue);
 
         if (!array_key_exists($option, $this->matrix)) {
