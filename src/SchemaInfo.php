@@ -47,6 +47,14 @@ class SchemaInfo
     const OPT_CONSTRAINT_MAX_LENGTH         = true;  // Whether "maxLength" is supported
     const OPT_CONSTRAINT_PATTERN            = true;  // Whether "pattern" is supported
 
+    // array constraints
+    const OPT_CONSTRAINT_ITEMS              = true;  // Whether "items" is supported
+    const OPT_CONSTRAINT_ADDITIONAL_ITEMS   = true;  // Whether "additionalItems" is supported
+    const OPT_CONSTRAINT_MAX_ITEMS          = true;  // Whether "maxItems" is supported
+    const OPT_CONSTRAINT_MIN_ITEMS          = true;  // Whether "minItems" is supported
+    const OPT_CONSTRAINT_UNIQUE_ITEMS       = true;  // Whether "uniqueItems" is supported
+
+
     /** @var int Spec version **/
     protected $specVersion = self::SPEC_NONE;
 
