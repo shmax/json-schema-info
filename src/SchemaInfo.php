@@ -31,6 +31,9 @@ class SchemaInfo
     const OPT_TYPE_ANY          = false; // primitive type any is allowed
     const OPT_TYPE_OTHER        = false; // other, non-spec primitive types are allowed
 
+    // basic properties
+    const OPT_SELF_DESCRIPTIVE_SCHEMA = false; // Whether $schema must validate against itself
+
     /** @var int Spec version **/
     protected $specVersion = self::SPEC_NONE;
 
@@ -158,6 +161,7 @@ class SchemaInfo
     {
         $this->setOptions(array(
             'OPT_TYPE_INTEGER'  => true,
+            'OPT_SELF_DESCRIPTIVE_SCHEMA' => true,
         ));
     }
 
