@@ -14,9 +14,8 @@ class SchemaInfoTest extends \PHPUnit\Framework\TestCase
             array('http://json-schema.org/draft-03/schema#', SchemaInfo::SPEC_DRAFT_03),
             array('http://json-schema.org/draft-03/schema#fragment', SchemaInfo::SPEC_DRAFT_03),
             array('https://json-schema.org/draft-04/schema', SchemaInfo::SPEC_DRAFT_04),
-            array('https://json-schema.org/draft-05/schema#', SchemaInfo::SPEC_DRAFT_05),
 
-            array('https://json-schema.org/draft-06/schema#', 0, false), // unsupported draft
+            array('https://json-schema.org/draft-05/schema#', 0, false), // draft-05 doesn't have a meta-schema
             array('http://example.com/schema', 0, false), // invalid URI
 
             array(5, 0, false), // invalid type for URI

@@ -32,7 +32,6 @@ class SchemaInfo
     // spec URIs
     const SPEC_DRAFT_03_URI                     = 'http://json-schema.org/draft-03/schema#';
     const SPEC_DRAFT_04_URI                     = 'http://json-schema.org/draft-04/schema#';
-    const SPEC_DRAFT_05_URI                     = 'http://json-schema.org/draft-05/schema#';
 
     // primitive types
     const OPT_TYPE_STRING                       = true;  // primitive type string is allowed (d03§5.1, d04c§3.5, d05c§4.2)
@@ -200,8 +199,6 @@ class SchemaInfo
         $matches = array();
         if (preg_match('~^https?://json-schema.org/(draft-[0-9]+)/schema($|#.*)~ui', $uri, $matches)) {
             switch ($matches[1]) {
-                case 'draft-05':
-                    return self::SPEC_DRAFT_05;
                 case 'draft-04':
                     return self::SPEC_DRAFT_04;
                 case 'draft-03':
