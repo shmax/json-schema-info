@@ -104,6 +104,10 @@
     },
 
     "keywords": {
+        "$ref": {
+            "value": true,
+            "reference": {"document": "core", "section": "5.28"}
+        },
         "definitions": {
             "value": true,
             "reference": {"comment": "Not present in spec"}

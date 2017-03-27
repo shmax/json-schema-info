@@ -99,6 +99,7 @@
             "description": "Validation keywords",
             "type": "object",
             "properties": {
+                "$ref": {"$ref": "#/definitions/rule"},
                 "definitions": {"$ref": "#/definitions/rule"},
 
                 "title": {"$ref": "#/definitions/rule"},
@@ -142,7 +143,7 @@
                 "format": {"$ref": "#/definitions/rule"}
             },
             "required": [
-                "definitions",
+                "$ref", "definitions",
                 "title", "description", "default",
                 "disallow", "extends",
                 "divisibleBy", "multipleOf", "maximum", "exclusiveMaximum", "minimum", "exclusiveMinimum",

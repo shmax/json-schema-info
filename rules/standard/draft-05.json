@@ -104,6 +104,10 @@
     },
 
     "keywords": {
+        "$ref": {
+            "value": true,
+            "reference": {"document": "core", "section": "7"}
+        },
         "definitions": {
             "value": true,
             "reference": {"document": "validation", "section": "5.26"}

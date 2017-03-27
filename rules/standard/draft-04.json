@@ -104,6 +104,10 @@
     },
 
     "keywords": {
+        "$ref": {
+            "value": true,
+            "reference":{"comment": "external; https://tools.ietf.org/id/draft-pbryan-zyp-json-ref-03.html"}
+        },
         "definitions": {
             "value": true,
             "reference": {"document": "validation", "section": "5.5.7"}
