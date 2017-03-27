@@ -305,6 +305,14 @@
         "customSchemaUriAsFormat": {
             "value": true,
             "reference": {"document": "core", "section": "5.23"}
+        },
+        "additionalItemsMayBeTrue": {
+            "value": false,
+            "reference": {"document": "core", "section": "5.6"}
+        },
+        "additionalItemsMustBeBooleanOrSchema": {
+            "value": true,
+            "reference": {"document": "core", "section": "5.6"}
         }
     }
 }

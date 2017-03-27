@@ -122,6 +122,14 @@
         "customSchemaUriAsFormat": {
             "value": true,
             "reference": {"comment": "permissive / loose validation"}
+        },
+        "additionalItemsMayBeTrue": {
+            "value": true,
+            "reference": {"comment": "permissive / loose validation"}
+        },
+        "additionalItemsMustBeBooleanOrSchema": {
+            "value": false,
+            "reference": {"comment": "permissive / loose validation"}
         }
     }
 }

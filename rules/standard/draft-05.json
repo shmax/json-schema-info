@@ -305,6 +305,14 @@
         "customSchemaUriAsFormat": {
             "value": false,
             "reference": {"comment": "Not present in spec"}
+        },
+        "additionalItemsMayBeTrue": {
+            "value": true,
+            "reference": {"document": "validation", "section": "5.9"}
+        },
+        "additionalItemsMustBeBooleanOrSchema": {
+            "value": true,
+            "reference": {"document": "validation", "section": "5.9"}
         }
     }
 }
