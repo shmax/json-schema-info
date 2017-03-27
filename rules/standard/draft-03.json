@@ -1,6 +1,6 @@
 {
     "uri": "http://json-schema.org/draft-04/schema#",
-    "order": ["$ref", "default"],
+    "order": ["$ref", "$schema", "default"],
     "types": {
         "string": {
             "value": true,
@@ -107,6 +107,10 @@
         "$ref": {
             "value": true,
             "reference": {"document": "core", "section": "5.28"}
+        },
+        "$schema": {
+            "value": true,
+            "reference": {"document": "core", "section": "5.29"}
         },
         "id": {
             "value": true,

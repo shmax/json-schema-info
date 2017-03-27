@@ -1,6 +1,6 @@
 {
     "uri": "http://json-schema.org/draft-04/schema#",
-    "order": ["$ref"],
+    "order": ["$ref", "$schema"],
     "types": {
         "string": {
             "value": true,
@@ -107,6 +107,10 @@
         "$ref": {
             "value": true,
             "reference":{"comment": "external; https://tools.ietf.org/id/draft-pbryan-zyp-json-ref-03.html"}
+        },
+        "$schema": {
+            "value": true,
+            "reference": {"document": "core", "section": "6"}
         },
         "id": {
             "value": true,
