@@ -1,6 +1,6 @@
 {
     "uri": "json-schema-info://permissive",
-    "order": ["$ref"],
+    "order": ["$ref", "default"],
     "types": {
         "string": {"value": true, "reference": {"comment": "permissive / loose validation"}},
         "number": {"value": true, "reference": {"comment": "permissive / loose validation"}},
