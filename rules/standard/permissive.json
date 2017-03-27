@@ -33,6 +33,7 @@
 
     "keywords": {
         "$ref": {"value": true, "reference": {"comment": "permissive / loose validation"}},
+        "id": {"value": true, "reference": {"comment": "permissive / loose validation"}},
         "definitions": {"value": true, "reference": {"comment": "permissive / loose validation"}},
 
         "title": {"value": true, "reference": {"comment": "permissive / loose validation"}},

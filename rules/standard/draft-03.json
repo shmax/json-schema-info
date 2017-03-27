@@ -108,6 +108,10 @@
             "value": true,
             "reference": {"document": "core", "section": "5.28"}
         },
+        "id": {
+            "value": true,
+            "reference": {"document": "core", "section": "5.27"}
+        },
         "definitions": {
             "value": true,
             "reference": {"comment": "Not present in spec"}
