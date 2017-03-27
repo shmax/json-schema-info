@@ -1,0 +1,216 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "type": "object",
+    "definitions": {
+        "rule": {
+            "type": "object",
+            "properties": {
+                "value": {
+                    "type": "boolean"
+                },
+                "comment": {
+                    "type": "string"
+                },
+                "reference": {
+                    "type": "object",
+                    "properties": {
+                        "document": {
+                            "type": "string",
+                            "enum": ["core", "validation"]
+                        },
+                        "section": {
+                            "type": "string",
+                            "pattern": "^[0-9]+(\\.[0-9]+)*$"
+                        },
+                        "comment": {
+                            "type": "string"
+                        }
+                    },
+                    "anyOf": [
+                        {"required": ["comment", "document", "section"]},
+                        {"required": ["document", "section"]},
+                        {"required": ["comment"]}
+                    ],
+                    "additionalProperties": false
+                }
+            },
+            "required": ["value", "reference"],
+            "additionalProperties": false
+        }
+    },
+    "properties": {
+        "uri": {
+            "description": "Meta-schema URI for validation",
+            "type": "string"
+        },
+        "order": {
+            "description": "Order in which validation keywords should be processed; unlisted values should be processed last in any order",
+            "type": "array",
+            "items": {
+                "type": "string",
+                "enum": ["$ref"]
+            },
+            "uniqueItems": true
+        },
+        "types": {
+            "description": "Primitive types",
+            "type": "object",
+            "properties": {
+                "string": {"$ref": "#/definitions/rule"},
+                "number": {"$ref": "#/definitions/rule"},
+                "integer": {"$ref": "#/definitions/rule"},
+                "boolean": {"$ref": "#/definitions/rule"},
+                "object": {"$ref": "#/definitions/rule"},
+                "array": {"$ref": "#/definitions/rule"},
+                "null": {"$ref": "#/definitions/rule"},
+                "any": {"$ref": "#/definitions/rule"}
+            },
+            "required": ["string", "number", "integer", "boolean", "object", "array", "null", "any"],
+            "additionalProperties": false
+        },
+        "formats": {
+            "description": "Valid pre-defined formats",
+            "type": "object",
+            "properties": {
+                "date-time": {"$ref": "#/definitions/rule"},
+                "date": {"$ref": "#/definitions/rule"},
+                "time": {"$ref": "#/definitions/rule"},
+                "utc-millisec": {"$ref": "#/definitions/rule"},
+                "regex": {"$ref": "#/definitions/rule"},
+                "color": {"$ref": "#/definitions/rule"},
+                "style": {"$ref": "#/definitions/rule"},
+                "phone": {"$ref": "#/definitions/rule"},
+                "uri": {"$ref": "#/definitions/rule"},
+                "uriref": {"$ref": "#/definitions/rule"},
+                "email": {"$ref": "#/definitions/rule"},
+                "ip-address": {"$ref": "#/definitions/rule"},
+                "ipv4": {"$ref": "#/definitions/rule"},
+                "ipv6": {"$ref": "#/definitions/rule"},
+                "host-name": {"$ref": "#/definitions/rule"},
+                "hostname": {"$ref": "#/definitions/rule"}
+            },
+            "required": [
+                "date-time", "date", "time", "utc-millisec", "regex", "color", "style", "phone",
+                "uri", "uriref", "email", "ip-address", "ipv4", "ipv6", "host-name", "hostname"
+            ],
+            "additionalProperties": false
+        },
+        "keywords": {
+            "description": "Validation keywords",
+            "type": "object",
+            "properties": {
+                "definitions": {"$ref": "#/definitions/rule"},
+
+                "title": {"$ref": "#/definitions/rule"},
+                "description": {"$ref": "#/definitions/rule"},
+                "default": {"$ref": "#/definitions/rule"},
+
+                "disallow": {"$ref": "#/definitions/rule"},
+                "extends": {"$ref": "#/definitions/rule"},
+
+                "divisibleBy": {"$ref": "#/definitions/rule"},
+                "multipleOf": {"$ref": "#/definitions/rule"},
+                "maximum": {"$ref": "#/definitions/rule"},
+                "exclusiveMaximum": {"$ref": "#/definitions/rule"},
+                "minimum": {"$ref": "#/definitions/rule"},
+                "exclusiveMinimum": {"$ref": "#/definitions/rule"},
+
+                "minLength": {"$ref": "#/definitions/rule"},
+                "maxLength": {"$ref": "#/definitions/rule"},
+                "pattern": {"$ref": "#/definitions/rule"},
+
+                "items": {"$ref": "#/definitions/rule"},
+                "additionalItems": {"$ref": "#/definitions/rule"},
+                "maxItems": {"$ref": "#/definitions/rule"},
+                "minItems": {"$ref": "#/definitions/rule"},
+                "uniqueItems": {"$ref": "#/definitions/rule"},
+
+                "properties": {"$ref": "#/definitions/rule"},
+                "maxProperties": {"$ref": "#/definitions/rule"},
+                "minProperties": {"$ref": "#/definitions/rule"},
+                "required": {"$ref": "#/definitions/rule"},
+                "patternProperties": {"$ref": "#/definitions/rule"},
+                "additionalProperties": {"$ref": "#/definitions/rule"},
+                "dependencies": {"$ref": "#/definitions/rule"},
+
+                "type": {"$ref": "#/definitions/rule"},
+                "enum": {"$ref": "#/definitions/rule"},
+                "allOf": {"$ref": "#/definitions/rule"},
+                "anyOf": {"$ref": "#/definitions/rule"},
+                "oneOf": {"$ref": "#/definitions/rule"},
+                "not": {"$ref": "#/definitions/rule"},
+                "format": {"$ref": "#/definitions/rule"}
+            },
+            "required": [
+                "definitions",
+                "title", "description", "default",
+                "disallow", "extends",
+                "divisibleBy", "multipleOf", "maximum", "exclusiveMaximum", "minimum", "exclusiveMinimum",
+                "minLength", "maxLength", "pattern",
+                "items", "additionalItems", "maxItems", "minItems", "uniqueItems",
+                "properties", "maxProperties", "minProperties", "required", "patternProperties", "additionalProperties", "dependencies",
+                "type", "enum", "allOf", "anyOf", "oneOf", "not", "format"
+            ],
+            "additionalProperties": false
+        },
+        "rules": {
+            "description": "Validation behavior rules",
+            "type": "object",
+            "properties": {
+                "allowUndefinedTypes": {
+                    "$ref": "#/definitions/rule",
+                    "description": "Other, non-spec primitive types are allowed"
+                },
+                "selfDescriptiveSchema": {
+                    "$ref": "#/definitions/rule",
+                    "description": "Whether $schema must validate against itself"
+                },
+                "nullByteInString": {
+                    "$ref": "#/definitions/rule",
+                    "description": "Whether strings explicitly may contain nulls (\\u0000)"
+                },
+                "defaultAsFallbackValue": {
+                    "$ref": "#/definitions/rule",
+                    "description": "Whether 'default' is intended as the value for an undefined instance"
+                },
+                "requiredBoolean": {
+                    "$ref": "#/definitions/rule",
+                    "description": "Whether 'required' is a boolean"
+                },
+                "requiredArray": {
+                    "$ref": "#/definitions/rule",
+                    "description": "Whether 'required' is an array"
+                },
+                "simpleDependencies": {
+                    "$ref": "#/definitions/rule",
+                    "description": "Whether 'dependencies' may directly list a string property, of an array of such"
+                },
+                "uniqueEnumItems": {
+                    "$ref": "#/definitions/rule",
+                    "description": "Whether the items in an 'enum' MUST be unique"
+                },
+                "formatIsOptional": {
+                    "$ref": "#/definitions/rule",
+                    "description": "Whether validating 'format' is optional"
+                },
+                "provideDisableFormatOption": {
+                    "$ref": "#/definitions/rule",
+                    "description": "Whether validators SHOULD provide an option to ignore 'format'"
+                },
+                "customSchemaUriAsFormat": {
+                    "$ref": "#/definitions/rule",
+                    "description": "Whether custom formats may be expressed as a schema URI, such schema being suitable for validation of the format"
+                }
+            },
+            "required": [
+                "allowUndefinedTypes", "selfDescriptiveSchema", "nullByteInString", "defaultAsFallbackValue",
+                "requiredBoolean", "requiredArray", "simpleDependencies", "uniqueEnumItems", "formatIsOptional",
+                "provideDisableFormatOption", "customSchemaUriAsFormat"
+            ],
+            "additionalProperties": false
+        }
+
+    },
+    "required": ["uri", "order", "types", "formats", "keywords", "rules"],
+    "additionalProperties": false
+}

@@ -1,0 +1,298 @@
+{
+    "uri": "http://json-schema.org/draft-04/schema#",
+    "order": ["$ref"],
+    "types": {
+        "string": {
+            "value": true,
+            "reference": {"document": "core", "section": "5.1"}
+        },
+        "number": {
+            "value": true,
+            "reference": {"document": "core", "section": "5.1"}
+        },
+        "integer": {
+            "value": true,
+            "reference": {"document": "core", "section": "5.1"}
+        },
+        "boolean": {
+            "value": true,
+            "reference": {"document": "core", "section": "5.1"}
+        },
+        "object": {
+            "value": true,
+            "reference": {"document": "core", "section": "5.1"}
+        },
+        "array": {
+            "value": true,
+            "reference": {"document": "core", "section": "5.1"}
+        },
+        "null": {
+            "value": true,
+            "reference": {"document": "core", "section": "5.1"}
+        },
+        "any": {
+            "value": true,
+            "reference": {"document": "core", "section": "5.1"}
+        }
+    },
+
+    "formats": {
+        "date-time": {
+            "value": true,
+            "reference": {"document": "core", "section": "5.23"}
+        },
+        "date": {
+            "value": true,
+            "reference": {"document": "core", "section": "5.23"}
+        },
+        "time": {
+            "value": true,
+            "reference": {"document": "core", "section": "5.23"}
+        },
+        "utc-millisec": {
+            "value": true,
+            "reference": {"document": "core", "section": "5.23"}
+        },
+        "regex": {
+            "value": true,
+            "reference": {"document": "core", "section": "5.23"}
+        },
+        "color": {
+            "value": true,
+            "reference": {"document": "core", "section": "5.23"}
+        },
+        "style": {
+            "value": true,
+            "reference": {"document": "core", "section": "5.23"}
+        },
+        "phone": {
+            "value": true,
+            "reference": {"document": "core", "section": "5.23"}
+        },
+        "uri": {
+            "value": true,
+            "reference": {"document": "core", "section": "5.23"}
+        },
+        "uriref": {
+            "value": false,
+            "reference": {"comment": "Not present in spec"}
+        },
+        "email": {
+            "value": true,
+            "reference": {"document": "core", "section": "5.23"}
+        },
+        "ip-address": {
+            "value": true,
+            "reference": {"document": "core", "section": "5.23"}
+        },
+        "ipv4": {
+            "value": false,
+            "reference": {"comment": "Replaces 'ip-address' from draft-04"}
+        },
+        "ipv6": {
+            "value": true,
+            "reference": {"document": "core", "section": "5.23"}
+        },
+        "host-name": {
+            "value": true,
+            "reference": {"document": "core", "section": "5.23"}
+        },
+        "hostname": {
+            "value": false,
+            "reference": {"comment": "Replaces 'host-name' from draft-04"}
+        }
+    },
+
+    "keywords": {
+        "definitions": {
+            "value": true,
+            "reference": {"comment": "Not present in spec"}
+        },
+
+        "title": {
+            "value": true,
+            "reference": {"document": "core", "section": "5.21"}
+        },
+        "description": {
+            "value": true,
+            "reference": {"document": "core", "section": "5.22"}
+        },
+        "default": {
+            "value": true,
+            "reference": {"document": "core", "section": "5.20"}
+        },
+
+        "disallow": {
+            "value": true,
+            "reference": {"document": "core", "section": "5.25"}
+        },
+        "extends": {
+            "value": true,
+            "reference": {"document": "core", "section": "5.26"}
+        },
+
+        "divisibleBy": {
+            "value": true,
+            "reference": {"document": "core", "section": "5.24"}
+        },
+        "multipleOf": {
+            "value": false,
+            "reference": {"comment": "Replaces to 'divisibleBy' from draft-04"}
+        },
+        "maximum": {
+            "value": true,
+            "reference": {"document": "core", "section": "5.10"}
+        },
+        "exclusiveMaximum": {
+            "value": true,
+            "reference": {"document": "core", "section": "5.12"}
+        },
+        "minimum": {
+            "value": true,
+            "reference": {"document": "core", "section": "5.9"}
+        },
+        "exclusiveMinimum": {
+            "value": true,
+            "reference": {"document": "core", "section": "5.11"}
+        },
+
+        "minLength": {
+            "value": true,
+            "reference": {"document": "core", "section": "5.17"}
+        },
+        "maxLength": {
+            "value": true,
+            "reference": {"document": "core", "section": "5.18"}
+        },
+        "pattern": {
+            "value": true,
+            "reference": {"document": "core", "section": "5.16"}
+        },
+
+        "items": {
+            "value": true,
+            "reference": {"document": "core", "section": "5.5"}
+        },
+        "additionalItems": {
+            "value": true,
+            "reference": {"document": "core", "section": "5.6"}
+        },
+        "maxItems": {
+            "value": true,
+            "reference": {"document": "core", "section": "5.14"}
+        },
+        "minItems": {
+            "value": true,
+            "reference": {"document": "core", "section": "5.13"}
+        },
+        "uniqueItems": {
+            "value": true,
+            "reference": {"document": "core", "section": "5.15"}
+        },
+
+        "properties": {
+            "value": true,
+            "reference": {"document": "core", "section": "5.2"}
+        },
+        "maxProperties": {
+            "value": false,
+            "reference": {"comment": "Not present in spec"}
+        },
+        "minProperties": {
+            "value": false,
+            "reference": {"comment": "Not present in spec"}
+        },
+        "required": {
+            "value": true,
+            "reference": {"document": "core", "section": "5.7"}
+        },
+        "patternProperties": {
+            "value": true,
+            "reference": {"document": "core", "section": "5.3"}
+        },
+        "additionalProperties": {
+            "value": true,
+            "reference": {"document": "core", "section": "5.4"}
+        },
+        "dependencies": {
+            "value": true,
+            "reference": {"document": "core", "section": "5.8"}
+        },
+
+        "type": {
+            "value": true,
+            "reference": {"document": "core", "section": "5.1"}
+        },
+        "enum": {
+            "value": true,
+            "reference": {"document": "core", "section": "5.19"}
+        },
+        "allOf": {
+            "value": false,
+            "reference": {"comment": "Not present in spec"}
+        },
+        "anyOf": {
+            "value": false,
+            "reference": {"comment": "Not present in spec"}
+        },
+        "oneOf": {
+            "value": false,
+            "reference": {"comment": "Not present in spec"}
+        },
+        "not": {
+            "value": false,
+            "reference": {"comment": "Not present in spec"}
+        },
+        "format": {
+            "value": true,
+            "reference": {"document": "core", "section": "5.23"}
+        }
+    },
+
+    "rules": {
+        "allowUndefinedTypes": {
+            "value": true,
+            "reference": {"document": "core", "section": "5.1"}
+        },
+        "selfDescriptiveSchema": {
+            "value": false,
+            "reference": {"comment": "Not present in spec"}
+        },
+        "nullByteInString": {
+            "value": false,
+            "reference": {"comment": "Not present in spec"}
+        },
+        "defaultAsFallbackValue": {
+            "value": true,
+            "reference": {"document": "core", "section": "5.20"}
+        },
+        "requiredBoolean": {
+            "value": true,
+            "reference": {"document": "core", "section": "5.7"}
+        },
+        "requiredArray": {
+            "value": false,
+            "reference": {"document": "core", "section": "5.7"}
+        },
+        "simpleDependencies": {
+            "value": true,
+            "reference": {"document": "core", "section": "5.8"}
+        },
+        "uniqueEnumItems": {
+            "value": false,
+            "reference": {"document": "core", "section": "5.19"}
+        },
+        "formatIsOptional": {
+            "value": true,
+            "reference": {"document": "core", "section": "5.23"}
+        },
+        "provideDisableFormatOption": {
+            "value": false,
+            "reference": {"comment": "Not present in spec"}
+        },
+        "customSchemaUriAsFormat": {
+            "value": true,
+            "reference": {"document": "core", "section": "5.23"}
+        }
+    }
+}
