@@ -87,7 +87,6 @@ class SchemaInfoTest extends \PHPUnit\Framework\TestCase
             array('formats', 'date', false),
             array('keywords', 'required', true),
             array('keywords', 'extends', false),
-            array('rules', 'requiredArray', true),
             array('rules', 'requiredBoolean', false),
             array('rules', 'invalidRule', true, '\InvalidArgumentException'),
             array('invalidSection', 'invalidRule', true, '\InvalidArgumentException'),

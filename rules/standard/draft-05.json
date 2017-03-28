@@ -282,10 +282,6 @@
             "value": false,
             "reference": {"document": "validation", "section": "5.15"}
         },
-        "requiredArray": {
-            "value": true,
-            "reference": {"document": "validation", "section": "5.15"}
-        },
         "simpleDependencies": {
             "value": false,
             "reference": {"document": "validation", "section": "5.19"}

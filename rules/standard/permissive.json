@@ -99,10 +99,6 @@
             "value": true,
             "reference": {"comment": "permissive / loose validation"}
         },
-        "requiredArray": {
-            "value": true,
-            "reference": {"comment": "permissive / loose validation"}
-        },
         "simpleDependencies": {
             "value": true,
             "reference": {"comment": "permissive / loose validation"}

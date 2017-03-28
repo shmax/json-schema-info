@@ -282,10 +282,6 @@
             "value": true,
             "reference": {"document": "core", "section": "5.7"}
         },
-        "requiredArray": {
-            "value": false,
-            "reference": {"document": "core", "section": "5.7"}
-        },
         "simpleDependencies": {
             "value": true,
             "reference": {"document": "core", "section": "5.8"}

@@ -180,10 +180,6 @@
                     "$ref": "#/definitions/rule",
                     "description": "Whether 'required' is a boolean"
                 },
-                "requiredArray": {
-                    "$ref": "#/definitions/rule",
-                    "description": "Whether 'required' is an array"
-                },
                 "simpleDependencies": {
                     "$ref": "#/definitions/rule",
                     "description": "Whether 'dependencies' may directly list a string property, of an array of such"
@@ -219,7 +215,7 @@
             },
             "required": [
                 "allowUndefinedTypes", "selfDescriptiveSchema", "nullByteInString", "defaultAsFallbackValue",
-                "requiredBoolean", "requiredArray", "simpleDependencies", "uniqueEnumItems", "formatIsOptional",
+                "requiredBoolean", "simpleDependencies", "uniqueEnumItems", "formatIsOptional",
                 "provideDisableFormatOption", "customSchemaUriAsFormat"
             ],
             "additionalProperties": false
