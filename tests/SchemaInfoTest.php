@@ -26,35 +26,6 @@ class SchemaInfoTest extends \PHPUnit\Framework\TestCase
         $this->assertTrue($v->isValid());
     }
 
-    public function dataSchemaInfoFromURI()
-    {
-        return array(
-            // various valid URI
-            array('http://json-schema.org/draft-03/schema', SchemaInfo::SPEC_DRAFT_03),
-            array('http://json-schema.org/draft-03/schema#', SchemaInfo::SPEC_DRAFT_03),
-            array('http://json-schema.org/draft-03/schema#fragment', SchemaInfo::SPEC_DRAFT_03),
-            array('https://json-schema.org/draft-04/schema', SchemaInfo::SPEC_DRAFT_04),
-
-            array('https://json-schema.org/draft-05/schema#', 0, false), // draft-05 doesn't have a meta-schema
-            array('http://example.com/schema', 0, false), // invalid URI
-
-            array(5, 0, false), // invalid type for URI
-            array('', 0, false), // empty string for URI
-        );
-    }
-
-    /** @dataProvider dataSchemaInfoFromURI **/
-    public function testGetSpecForURI($uri, $spec, $isValid = true)
-    {
-        if (!$isValid) {
-            $this->setExpectedException('\InvalidArgumentException');
-        }
-
-        $uriSchemaInfo = SchemaInfo::getSpecForURI($uri);
-
-        $this->assertEquals($spec, $uriSchemaInfo);
-    }
-
     public function dataLoadSchemaSpec()
     {
         return array(
@@ -62,6 +33,8 @@ class SchemaInfoTest extends \PHPUnit\Framework\TestCase
             array('http://json-schema.org/draft-04/schema'),
             array(SchemaInfo::SPEC_DRAFT_05),
             array(SchemaInfo::SPEC_PERMISSIVE),
+            array('http://json-schema.org/draft-05/schema', '\InvalidArgumentException'),
+            array(false, '\InvalidArgumentException'),
             array(SchemaInfo::SPEC_NONE, '\InvalidArgumentException'),
             array(SchemaInfo::SPEC_MISSING_FILE, '\RuntimeException'),
             array(SchemaInfo::SPEC_INVALID_JSON, '\RuntimeException'),

@@ -12,28 +12,28 @@ namespace Erayd\JsonSchemaInfo;
  */
 class SchemaInfo
 {
-    // internal spec identifiers
-    const SPEC_MISSING_FILE                     = -2; // spec file missing
-    const SPEC_INVALID_JSON                     = -1; // spec file contains invalid JSON
-    const SPEC_NONE                             =  0; // no spec available
-    const SPEC_PERMISSIVE                       =  1; // most permissive superset of options possible
+    // spec URIs
+    const SPEC_DRAFT_03_URI                     =  'http://json-schema.org/draft-03/schema#';
+    const SPEC_DRAFT_04_URI                     =  'http://json-schema.org/draft-04/schema#';
 
-    const SPEC_DRAFT_03                         =  3;
+    // internal spec identifiers
+    const SPEC_MISSING_FILE                     = 'missing';     // spec file missing
+    const SPEC_INVALID_JSON                     = '../invalid';  // spec file contains invalid JSON
+    const SPEC_NONE                             =  'none';       // no spec available
+    const SPEC_PERMISSIVE                       =  'permissive'; // most permissive superset of options possible
+
+    const SPEC_DRAFT_03                         =  'draft-03';
     // d03 (combined) https://tools.ietf.org/html/draft-zyp-json-schema-03
 
-    const SPEC_DRAFT_04                         =  4;
+    const SPEC_DRAFT_04                         =  'draft-04';
     // d04c (core) https://tools.ietf.org/html/draft-zyp-json-schema-04
     // d04v (validation) https://tools.ietf.org/html/draft-fge-json-schema-validation-00
     // d04h (hyper-schema) https://tools.ietf.org/html/draft-luff-json-hyper-schema-00
 
-    const SPEC_DRAFT_05                         =  5;
+    const SPEC_DRAFT_05                         =  'draft-05';
     // d05c (core) https://tools.ietf.org/html/draft-wright-json-schema-00
     // d05v (validation) https://tools.ietf.org/html/draft-wright-json-schema-validation-00
     // d05h (hyper-schema) https://tools.ietf.org/html/draft-wright-json-schema-hyperschema-00
-
-    // spec URIs
-    const SPEC_DRAFT_03_URI                     =  'http://json-schema.org/draft-03/schema#';
-    const SPEC_DRAFT_04_URI                     =  'http://json-schema.org/draft-04/schema#';
 
     /** @var int Spec version */
     protected $specVersion = self::SPEC_NONE;
@@ -50,42 +50,44 @@ class SchemaInfo
      */
     public function __construct($spec)
     {
+        // check type
+        if (!is_string($spec)) {
+            throw new \InvalidArgumentException('Spec must be a string');
+        }
+
+        // catch errors
         set_error_handler(function ($errno, $errstr) {
             throw new \RuntimeException("Error loading spec: $errstr");
         });
 
         try {
-            // make sure spec is an int
-            if (!is_int($spec)) {
-                $spec = self::getSpecForURI($spec);
+            // translate URI
+            $matches = array();
+            if (preg_match('~^https?://json-schema.org/(draft-[0-9]+)/schema($|#.*)~ui', $spec, $matches)) {
+                switch ($matches[1]) {
+                    case 'draft-04':
+                        $spec = self::SPEC_DRAFT_04;
+                        break;
+                    case 'draft-03':
+                        $spec = self::SPEC_DRAFT_03;
+                        break;
+                }
             }
 
-            // spec-specific setup
-            switch ($spec) {
-                case self::SPEC_DRAFT_05:
-                    $ruleset = 'draft-05';
-                    break;
-                case self::SPEC_DRAFT_04:
-                    $ruleset = 'draft-04';
-                    break;
-                case self::SPEC_DRAFT_03:
-                    $ruleset = 'draft-03';
-                    break;
-                case self::SPEC_PERMISSIVE:
-                    $ruleset = 'permissive';
-                    break;
-                case self::SPEC_MISSING_FILE:
-                    $ruleset = 'missing';
-                    break;
-                case self::SPEC_INVALID_JSON:
-                    $ruleset = '../invalid';
-                    break;
-                default:
-                    throw new \InvalidArgumentException('Unknown schema spec');
+            // make sure spec is valid
+            if (!in_array($spec, array(
+                'draft-03',
+                'draft-04',
+                'draft-05',
+                'permissive',
+                'missing',
+                '../invalid',
+            ))) {
+                throw new \InvalidArgumentException('Unknown schema spec');
             }
 
             // load the spec ruleset file
-            $specInfo = json_decode(file_get_contents(__DIR__ . "/../rules/standard/$ruleset.json"));
+            $specInfo = json_decode(file_get_contents(__DIR__ . "/../rules/standard/$spec.json"));
             if (json_last_error() !== \JSON_ERROR_NONE) {
                 throw new \RuntimeException('Unable to decode ruleset file');
             }
@@ -96,33 +98,6 @@ class SchemaInfo
             throw $e;
         }
         restore_error_handler();
-    }
-
-    /**
-     * Get the spec version by URI
-     *
-     * @api
-     *
-     * @param string $uri
-     * @return int
-     */
-    public static function getSpecForURI($uri)
-    {
-        if (!is_string($uri) || !strlen($uri)) {
-            throw new \InvalidArgumentException('You must provide a URI');
-        }
-
-        $matches = array();
-        if (preg_match('~^https?://json-schema.org/(draft-[0-9]+)/schema($|#.*)~ui', $uri, $matches)) {
-            switch ($matches[1]) {
-                case 'draft-04':
-                    return self::SPEC_DRAFT_04;
-                case 'draft-03':
-                    return self::SPEC_DRAFT_03;
-            }
-        }
-
-        throw new \InvalidArgumentException("Unknown schema spec: $uri");
     }
 
     /**
