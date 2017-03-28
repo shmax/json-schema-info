@@ -313,6 +313,10 @@
         "additionalItemsMustBeBooleanOrSchema": {
             "value": true,
             "reference": {"document": "validation", "section": "5.9"}
+        },
+        "allowSchemaInUnionType": {
+            "value": false,
+            "reference": {"document": "validation", "section": "5.21"}
         }
     }
 }

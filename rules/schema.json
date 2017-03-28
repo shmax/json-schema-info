@@ -211,6 +211,10 @@
                 "additionalItemsMustBeBooleanOrSchema": {
                     "$ref": "#/definitions/rule",
                     "description": "Whether 'additionalItems' MUST be a boolean or a valid schema object"
+                },
+                "allowSchemaInUnionType": {
+                    "$ref": "#/definitions/rule",
+                    "description": "Whether a schema may be used as an item within a 'type' array"
                 }
             },
             "required": [

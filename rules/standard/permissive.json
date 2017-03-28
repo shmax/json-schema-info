@@ -130,6 +130,10 @@
         "additionalItemsMustBeBooleanOrSchema": {
             "value": false,
             "reference": {"comment": "permissive / loose validation"}
+        },
+        "allowSchemaInUnionType": {
+            "value": true,
+            "reference": {"comment": "permissive / loose validation"}
         }
     }
 }
