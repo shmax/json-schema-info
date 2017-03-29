@@ -313,6 +313,10 @@
         "allowSchemaInUnionType": {
             "value": false,
             "reference": {"document": "validation", "section": "5.5.2.1"}
+        },
+        "objectAsItemsAlwaysValid": {
+            "value": true,
+            "reference": {"document": "validation", "section": "5.3.1.2"}
         }
     }
 }

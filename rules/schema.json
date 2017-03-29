@@ -211,6 +211,10 @@
                 "allowSchemaInUnionType": {
                     "$ref": "#/definitions/rule",
                     "description": "Whether a schema may be used as an item within a 'type' array"
+                },
+                "objectAsItemsAlwaysValid": {
+                    "$ref": "#/definitions/rule",
+                    "description": "Whether an object definition for 'items' is always considered valid"
                 }
             },
             "required": [
