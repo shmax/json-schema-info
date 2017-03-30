@@ -130,10 +130,6 @@
         "allowSchemaInUnionType": {
             "value": true,
             "reference": {"comment": "permissive / loose validation"}
-        },
-        "objectAsItemsAlwaysValid": {
-            "value": true,
-            "reference": {"comment": "permissive / loose validation"}
         }
     }
 }

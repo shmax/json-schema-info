@@ -313,10 +313,6 @@
         "allowSchemaInUnionType": {
             "value": true,
             "reference": {"document": "core", "section": "5.1"}
-        },
-        "objectAsItemsAlwaysValid": {
-            "value": false,
-            "reference": {"document": "core", "section": "5.5"}
         }
     }
 }
