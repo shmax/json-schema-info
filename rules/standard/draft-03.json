@@ -117,7 +117,7 @@
             "reference": {"document": "core", "section": "5.27"}
         },
         "definitions": {
-            "value": true,
+            "value": false,
             "reference": {"comment": "Not present in spec"}
         },
 
