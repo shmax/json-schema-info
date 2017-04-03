@@ -20,7 +20,6 @@ class SchemaInfo
     const SPEC_MISSING_FILE                     = 'missing';     // spec file missing
     const SPEC_INVALID_JSON                     = '../invalid';  // spec file contains invalid JSON
     const SPEC_NONE                             =  'none';       // no spec available
-    const SPEC_PERMISSIVE                       =  'permissive'; // most permissive superset of options possible
 
     const SPEC_DRAFT_03                         =  'draft-03';
     // d03 (combined) https://tools.ietf.org/html/draft-zyp-json-schema-03
