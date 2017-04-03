@@ -32,7 +32,6 @@ class SchemaInfoTest extends \PHPUnit\Framework\TestCase
             array('http://json-schema.org/draft-03/schema'),
             array('http://json-schema.org/draft-04/schema'),
             array(SchemaInfo::SPEC_DRAFT_05),
-            array(SchemaInfo::SPEC_PERMISSIVE),
             array('http://json-schema.org/draft-05/schema', '\InvalidArgumentException'),
             array(false, '\InvalidArgumentException'),
             array(SchemaInfo::SPEC_NONE, '\InvalidArgumentException'),

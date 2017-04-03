@@ -79,7 +79,6 @@ class SchemaInfo
                 'draft-03',
                 'draft-04',
                 'draft-05',
-                'permissive',
                 'missing',
                 '../invalid',
             ))) {
