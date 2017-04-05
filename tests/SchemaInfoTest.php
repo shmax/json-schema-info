@@ -103,10 +103,4 @@ class SchemaInfoTest extends \PHPUnit\Framework\TestCase
         $s = new SchemaInfo(SchemaInfo::SPEC_DRAFT_04);
         $this->assertEquals($expectedValue, $s->$method($ruleName));
     }
-
-    public function testOrder()
-    {
-        $s = new SchemaInfo(SchemaInfo::SPEC_DRAFT_04);
-        $this->assertEquals(array('$ref', '$schema'), $s->getOrder());
-    }
 }

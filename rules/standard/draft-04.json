@@ -1,6 +1,5 @@
 {
     "uri": "http://json-schema.org/draft-04/schema#",
-    "order": ["$ref", "$schema"],
     "types": {
         "string": {
             "value": true,

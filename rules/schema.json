@@ -43,15 +43,6 @@
             "description": "Meta-schema URI for validation",
             "type": "string"
         },
-        "order": {
-            "description": "Order in which validation keywords should be processed; unlisted values should be processed last in any order",
-            "type": "array",
-            "items": {
-                "type": "string",
-                "enum": ["$ref", "default"]
-            },
-            "uniqueItems": true
-        },
         "types": {
             "description": "Primitive types",
             "type": "object",
@@ -223,6 +214,6 @@
         }
 
     },
-    "required": ["uri", "order", "types", "formats", "keywords", "rules"],
+    "required": ["uri", "types", "formats", "keywords", "rules"],
     "additionalProperties": false
 }
