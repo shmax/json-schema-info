@@ -32,6 +32,22 @@
                         {"required": ["comment"]}
                     ],
                     "additionalProperties": false
+                },
+                "constraints": {
+                    "type": "object",
+                    "properties": {
+                        "objectIsSchema": {
+                            "type": "boolean",
+                            "default": false,
+                            "description": "Whether object values of this property are schemas"
+                        },
+                        "childObjectIsSchema": {
+                            "type": "boolean",
+                            "default": false,
+                            "description": "Whether object values of this property's children are schemas"
+                        }
+                    },
+                    "additionalProperties": false
                 }
             },
             "required": ["value", "reference"],

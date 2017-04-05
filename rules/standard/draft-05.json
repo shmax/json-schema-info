@@ -186,7 +186,8 @@
         },
         "additionalItems": {
             "value": true,
-            "reference": {"document": "validation", "section": "5.9"}
+            "reference": {"document": "validation", "section": "5.9"},
+            "constraints": {"objectIsSchema": true}
         },
         "maxItems": {
             "value": true,
@@ -203,7 +204,8 @@
 
         "properties": {
             "value": true,
-            "reference": {"document": "validation", "section": "5.16"}
+            "reference": {"document": "validation", "section": "5.16"},
+            "constraints": {"childObjectIsSchema": true}
         },
         "maxProperties": {
             "value": true,
@@ -219,11 +221,13 @@
         },
         "patternProperties": {
             "value": true,
-            "reference": {"document": "validation", "section": "5.17"}
+            "reference": {"document": "validation", "section": "5.17"},
+            "constraints": {"childObjectIsSchema": true}
         },
         "additionalProperties": {
             "value": true,
-            "reference": {"document": "validation", "section": "5.18"}
+            "reference": {"document": "validation", "section": "5.18"},
+            "constraints": {"objectIsSchema": true}
         },
         "dependencies": {
             "value": true,
@@ -240,19 +244,23 @@
         },
         "allOf": {
             "value": true,
-            "reference": {"document": "validation", "section": "5.22"}
+            "reference": {"document": "validation", "section": "5.22"},
+            "constraints": {"objectIsSchema": true}
         },
         "anyOf": {
             "value": true,
-            "reference": {"document": "validation", "section": "5.23"}
+            "reference": {"document": "validation", "section": "5.23"},
+            "constraints": {"objectIsSchema": true}
         },
         "oneOf": {
             "value": true,
-            "reference": {"document": "validation", "section": "5.24"}
+            "reference": {"document": "validation", "section": "5.24"},
+            "constraints": {"objectIsSchema": true}
         },
         "not": {
             "value": true,
-            "reference": {"document": "validation", "section": "5.5.6"}
+            "reference": {"document": "validation", "section": "5.5.6"},
+            "constraints": {"objectIsSchema": true}
         },
         "format": {
             "value": true,

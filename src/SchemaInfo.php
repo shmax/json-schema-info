@@ -40,6 +40,9 @@ class SchemaInfo
     /** @var \StdClass Spec rules */
     protected $specInfo = null;
 
+    /** @var \StdClass Spec schema */
+    protected $specSchema = null;
+
     /**
      * Create a new SchemaInfo instance for the provided spec
      *
@@ -90,24 +93,19 @@ class SchemaInfo
                 throw new \RuntimeException('Unable to decode ruleset file');
             }
 
+            // load the spec schema file
+            $specSchema = json_decode(file_get_contents(__DIR__ . "/../rules/schema.json"));
+            if (json_last_error() !== \JSON_ERROR_NONE) {
+                throw new \RuntimeException('Unable to decode ruleset schema file'); // @codeCoverageIgnore
+            }
+
             $this->specInfo = $specInfo;
+            $this->specSchema = $specSchema;
         } catch (\Exception $e) {
             restore_error_handler();
             throw $e;
         }
         restore_error_handler();
-    }
-
-    /**
-     * Get a list of keywords that should be applied first, in they order they should be applied
-     *
-     * @api
-     *
-     * @return string[]
-     */
-    public function getOrder()
-    {
-        return $this->specInfo->order;
     }
 
     /**
@@ -117,15 +115,29 @@ class SchemaInfo
      *
      * @param string $ruleName Rule name
      * @param string $section Rule section [type|format|keyword|rule]
+     * @param \StdClass $constraints constraints object to set
      * @return bool
      */
-    public function rule($ruleName, $section = 'rules')
+    public function rule($ruleName, $section = 'rules', &$constraints = null)
     {
         if (!isset($this->specInfo->$section)) {
             throw new \InvalidArgumentException("Invalid section: $section");
         }
         if (!isset($this->specInfo->$section->$ruleName)) {
             throw new \InvalidArgumentException("Invalid rule name: $section.$ruleName");
+        }
+
+        // set constraints object
+        $constraints = new \stdClass();
+        foreach ($this->specSchema->definitions->rule->properties->constraints->properties as $name => $constraint) {
+            if (
+                isset($this->specInfo->$section->$ruleName->constraints)
+                && isset($this->specInfo->$section->$ruleName->constraints->$name)
+            ) {
+                $constraints->$name = $this->specInfo->$section->$ruleName->constraints->$name;
+            } elseif (property_exists($constraint, 'default')) {
+                $constraints->$name = $constraint->default;
+            }
         }
 
         return $this->specInfo->$section->$ruleName->value;
@@ -137,11 +149,12 @@ class SchemaInfo
      * @api
      *
      * @param string $typeName Type name
+     * @param \StdClass $constraints constraints object to set
      * @return bool
      */
-    public function type($typeName)
+    public function type($typeName, &$constraints = null)
     {
-        return $this->rule($typeName, 'types');
+        return $this->rule($typeName, 'types', $constraints);
     }
 
     /**
@@ -150,11 +163,12 @@ class SchemaInfo
      * @api
      *
      * @param string $formatName Format name
+     * @param \StdClass $constraints constraints object to set
      * @return bool
      */
-    public function format($formatName)
+    public function format($formatName, &$constraints = null)
     {
-        return $this->rule($formatName, 'formats');
+        return $this->rule($formatName, 'formats', $constraints);
     }
 
     /**
@@ -163,10 +177,11 @@ class SchemaInfo
      * @api
      *
      * @param string $keywordName
+     * @param \StdClass $constraints constraints object to set
      * @return bool
      */
-    public function keyword($keywordName)
+    public function keyword($keywordName, &$constraints = null)
     {
-        return $this->rule($keywordName, 'keywords');
+        return $this->rule($keywordName, 'keywords', $constraints);
     }
 }
