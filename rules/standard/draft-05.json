@@ -117,7 +117,8 @@
         },
         "definitions": {
             "value": true,
-            "reference": {"document": "validation", "section": "5.26"}
+            "reference": {"document": "validation", "section": "5.26"},
+            "constraints": {"childObjectIsSchema": true}
         },
 
         "title": {
