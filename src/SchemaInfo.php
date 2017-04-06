@@ -40,6 +40,9 @@ class SchemaInfo
     /** @var \StdClass Spec rules */
     protected $specInfo = null;
 
+    /** @var \StdClass Ruleset schema */
+    protected $rulesetSchema = null;
+
     /** @var \StdClass Spec schema */
     protected $specSchema = null;
 
@@ -93,13 +96,20 @@ class SchemaInfo
                 throw new \RuntimeException('Unable to decode ruleset file');
             }
 
+            // load the ruleset schema file
+            $rulesetSchema = json_decode(file_get_contents(__DIR__ . "/../rules/schema.json"));
+            if (json_last_error() !== \JSON_ERROR_NONE) {
+                throw new \RuntimeException('Unable to decode ruleset schema file'); // @codeCoverageIgnore
+            }
+
             // load the spec schema file
-            $specSchema = json_decode(file_get_contents(__DIR__ . "/../rules/schema.json"));
+            $specSchema = json_decode(file_get_contents(__DIR__ . "/../dist/$spec/schema.json"));
             if (json_last_error() !== \JSON_ERROR_NONE) {
                 throw new \RuntimeException('Unable to decode ruleset schema file'); // @codeCoverageIgnore
             }
 
             $this->specInfo = $specInfo;
+            $this->rulesetSchema = $rulesetSchema;
             $this->specSchema = $specSchema;
         } catch (\Exception $e) {
             restore_error_handler();
@@ -129,7 +139,7 @@ class SchemaInfo
 
         // set constraints object
         $constraints = new \stdClass();
-        foreach ($this->specSchema->definitions->rule->properties->constraints->properties as $name => $constraint) {
+        foreach ($this->rulesetSchema->definitions->rule->properties->constraints->properties as $name => $constraint) {
             if (isset($this->specInfo->$section->$ruleName->constraints)
                 && isset($this->specInfo->$section->$ruleName->constraints->$name)
             ) {
@@ -182,5 +192,17 @@ class SchemaInfo
     public function keyword($keywordName, &$constraints = null)
     {
         return $this->rule($keywordName, 'keywords', $constraints);
+    }
+
+    /**
+     * Get the spec meta-schema for validation
+     *
+     * @api
+     *
+     * @return \StdClass
+     */
+    public function getSchema()
+    {
+        return $this->specSchema;
     }
 }
