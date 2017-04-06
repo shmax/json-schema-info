@@ -130,8 +130,7 @@ class SchemaInfo
         // set constraints object
         $constraints = new \stdClass();
         foreach ($this->specSchema->definitions->rule->properties->constraints->properties as $name => $constraint) {
-            if (
-                isset($this->specInfo->$section->$ruleName->constraints)
+            if (isset($this->specInfo->$section->$ruleName->constraints)
                 && isset($this->specInfo->$section->$ruleName->constraints->$name)
             ) {
                 $constraints->$name = $this->specInfo->$section->$ruleName->constraints->$name;
