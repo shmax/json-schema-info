@@ -183,7 +183,8 @@
 
         "items": {
             "value": true,
-            "reference": {"document": "validation", "section": "5.3.1"}
+            "reference": {"document": "validation", "section": "5.3.1"},
+            "constraints": {"objectIsSchema": true}
         },
         "additionalItems": {
             "value": true,

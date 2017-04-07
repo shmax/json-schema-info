@@ -183,7 +183,8 @@
 
         "items": {
             "value": true,
-            "reference": {"document": "core", "section": "5.5"}
+            "reference": {"document": "core", "section": "5.5"},
+            "constraints": {"objectIsSchema": true}
         },
         "additionalItems": {
             "value": true,
