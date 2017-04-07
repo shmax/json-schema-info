@@ -108,6 +108,7 @@ class SchemaInfo
                 throw new \RuntimeException('Unable to decode ruleset schema file'); // @codeCoverageIgnore
             }
 
+            $this->specVersion = $spec;
             $this->specInfo = $specInfo;
             $this->rulesetSchema = $rulesetSchema;
             $this->specSchema = $specSchema;
@@ -204,5 +205,25 @@ class SchemaInfo
     public function getSchema()
     {
         return $this->specSchema;
+    }
+
+    /**
+     * Get the spec meta-schema URI
+     *
+     * @api
+     *
+     * @return string
+     */
+    public function getURI()
+    {
+        switch ($this->specVersion) {
+            case self::SPEC_DRAFT_03:
+                return self::SPEC_DRAFT_03_URI;
+            case self::SPEC_DRAFT_04:
+            case self::SPEC_DRAFT_05:
+                return self::SPEC_DRAFT_04_URI;
+        }
+
+        return null;
     }
 }

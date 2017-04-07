@@ -119,4 +119,11 @@ class SchemaInfoTest extends \PHPUnit\Framework\TestCase
 
         $this->assertEquals('http://json-schema.org/draft-04/schema#', $s->getSchema()->id);
     }
+
+    public function testGetURI()
+    {
+        $s = new SchemaInfo(SchemaInfo::SPEC_DRAFT_04);
+
+        $this->assertEquals('http://json-schema.org/draft-04/schema#', $s->getURI());
+    }
 }
