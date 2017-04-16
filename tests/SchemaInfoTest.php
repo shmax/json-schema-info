@@ -120,10 +120,23 @@ class SchemaInfoTest extends \PHPUnit\Framework\TestCase
         $this->assertEquals('http://json-schema.org/draft-04/schema#', $s->getSchema()->id);
     }
 
-    public function testGetURI()
+    public function dataGetURI()
     {
-        $s = new SchemaInfo(SchemaInfo::SPEC_DRAFT_04);
+        return array(
+            array(SchemaInfo::SPEC_DRAFT_03, 'http://json-schema.org/draft-03/schema#'),
+            array(SchemaInfo::SPEC_DRAFT_04, 'http://json-schema.org/draft-04/schema#'),
+            array(SchemaInfo::SPEC_DRAFT_05, 'http://json-schema.org/draft-04/schema#'),
+        );
+    }
 
-        $this->assertEquals('http://json-schema.org/draft-04/schema#', $s->getURI());
+    /** @dataProvider dataGetURI **/
+    public function testGetURI($specVersion, $expectedURI)
+    {
+        $s = new SchemaInfo($specVersion);
+
+        $this->assertEquals($expectedURI, $s->getURI());
+
+        $this->setExpectedException('\InvalidArgumentException');
+        $s->getURI('invalidSpecVersion');
     }
 }

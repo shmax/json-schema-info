@@ -214,16 +214,16 @@ class SchemaInfo
      *
      * @return string
      */
-    public function getURI()
+    public function getURI($specVersion = null)
     {
-        switch ($this->specVersion) {
+        switch ($specVersion ?: $this->specVersion) {
             case self::SPEC_DRAFT_03:
                 return self::SPEC_DRAFT_03_URI;
-            case self::SPEC_DRAFT_04:
+            case self::SPEC_DRAFT_04: // draft-04 and draft-05 share the same meta-schema uri
             case self::SPEC_DRAFT_05:
                 return self::SPEC_DRAFT_04_URI;
         }
 
-        return null;
+        throw new \InvalidArgumentException('No URI defined for spec: ' . $this->specVersion);
     }
 }
