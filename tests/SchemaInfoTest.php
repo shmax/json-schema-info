@@ -139,4 +139,16 @@ class SchemaInfoTest extends \PHPUnit\Framework\TestCase
         $this->setExpectedException('\InvalidArgumentException');
         $s->getURI('invalidSpecVersion');
     }
+
+    public function testGetSpecName()
+    {
+        $this->assertNull(SchemaInfo::getSpecName('not://a/real/uri'));
+        $this->assertEquals(
+            SchemaInfo::SPEC_DRAFT_04,
+            SchemaInfo::getSpecName('http://json-schema.org/draft-04/schema#')
+        );
+
+        $this->setExpectedException('\InvalidArgumentException');
+        SchemaInfo::getSpecName(42);
+    }
 }

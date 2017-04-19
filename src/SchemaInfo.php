@@ -67,17 +67,7 @@ class SchemaInfo
 
         try {
             // translate URI
-            $matches = array();
-            if (preg_match('~^https?://json-schema.org/(draft-[0-9]+)/schema($|#.*)~ui', $spec, $matches)) {
-                switch ($matches[1]) {
-                    case 'draft-04':
-                        $spec = self::SPEC_DRAFT_04;
-                        break;
-                    case 'draft-03':
-                        $spec = self::SPEC_DRAFT_03;
-                        break;
-                }
-            }
+            $spec = self::getSpecName($spec) ?: $spec;
 
             // make sure spec is valid
             if (!in_array($spec, array(
@@ -225,5 +215,35 @@ class SchemaInfo
         }
 
         throw new \InvalidArgumentException('No URI defined for spec: ' . $this->specVersion);
+    }
+
+    /**
+     * Get the spec name for a meta-schema URI
+     *
+     * @api
+     *
+     * @param string $uri
+     * @return string
+     */
+    public static function getSpecName($uri)
+    {
+        // check type
+        if (!is_string($uri)) {
+            throw new \InvalidArgumentException('URI must be a string');
+        }
+
+        // translate URI
+        $matches = array();
+        if (preg_match('~^https?://json-schema.org/(draft-0[34])/schema($|#.*)~ui', $uri, $matches)) {
+            switch ($matches[1]) {
+                case 'draft-04':
+                    return self::SPEC_DRAFT_04;
+                case 'draft-03':
+                    return self::SPEC_DRAFT_03;
+            }
+        }
+
+        // no match found
+        return null;
     }
 }
