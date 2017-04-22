@@ -36,15 +36,15 @@
                 "constraints": {
                     "type": "object",
                     "properties": {
-                        "objectIsSchema": {
+                        "wantSchema": {
                             "type": "boolean",
                             "default": false,
-                            "description": "Whether object values of this property are schemas"
+                            "description": "Whether (correctly-typed) values of this property are schemas"
                         },
-                        "childObjectIsSchema": {
+                        "childWantSchema": {
                             "type": "boolean",
                             "default": false,
-                            "description": "Whether object values of this property's children are schemas"
+                            "description": "Whether (correctly-typed) values of this property's children are schemas"
                         }
                     },
                     "additionalProperties": false

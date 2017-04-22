@@ -109,8 +109,8 @@ class SchemaInfoTest extends \PHPUnit\Framework\TestCase
         $s = new SchemaInfo(SchemaInfo::SPEC_DRAFT_04);
         $s->keyword('anyOf', $constraints);
 
-        $this->assertTrue($constraints->objectIsSchema);
-        $this->assertFalse($constraints->childObjectIsSchema);
+        $this->assertTrue($constraints->wantSchema);
+        $this->assertFalse($constraints->childWantSchema);
     }
 
     public function testGetSchema()

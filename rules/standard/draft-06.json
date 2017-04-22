@@ -134,7 +134,7 @@
         "definitions": {
             "value": true,
             "reference": {"document": "validation", "section": "7.1"},
-            "constraints": {"childObjectIsSchema": true}
+            "constraints": {"childWantSchema": true}
         },
 
         "title": {
@@ -204,12 +204,12 @@
         "items": {
             "value": true,
             "reference": {"document": "validation", "section": "6.9"},
-            "constraints": {"objectIsSchema": true}
+            "constraints": {"wantSchema": true}
         },
         "additionalItems": {
             "value": true,
             "reference": {"document": "validation", "section": "6.10"},
-            "constraints": {"objectIsSchema": true}
+            "constraints": {"wantSchema": true}
         },
         "maxItems": {
             "value": true,
@@ -226,13 +226,13 @@
         "contains": {
             "value": true,
             "reference": {"document": "validation", "section": "6.14"},
-            "constraints": {"objectIsSchema": true}
+            "constraints": {"wantSchema": true}
         },
 
         "properties": {
             "value": true,
             "reference": {"document": "validation", "section": "6.18"},
-            "constraints": {"childObjectIsSchema": true}
+            "constraints": {"childWantSchema": true}
         },
         "maxProperties": {
             "value": true,
@@ -249,12 +249,12 @@
         "patternProperties": {
             "value": true,
             "reference": {"document": "validation", "section": "6.19"},
-            "constraints": {"childObjectIsSchema": true}
+            "constraints": {"childWantSchema": true}
         },
         "additionalProperties": {
             "value": true,
             "reference": {"document": "validation", "section": "6.20"},
-            "constraints": {"objectIsSchema": true}
+            "constraints": {"wantSchema": true}
         },
         "dependencies": {
             "value": true,
@@ -263,7 +263,7 @@
         "propertyNames": {
             "value": true,
             "reference": {"document": "validation", "section": "6.22"},
-            "constraints": {"objectIsSchema": true}
+            "constraints": {"wantSchema": true}
         },
 
         "type": {
@@ -281,22 +281,22 @@
         "allOf": {
             "value": true,
             "reference": {"document": "validation", "section": "6.26"},
-            "constraints": {"objectIsSchema": true}
+            "constraints": {"wantSchema": true}
         },
         "anyOf": {
             "value": true,
             "reference": {"document": "validation", "section": "6.27"},
-            "constraints": {"objectIsSchema": true}
+            "constraints": {"wantSchema": true}
         },
         "oneOf": {
             "value": true,
             "reference": {"document": "validation", "section": "6.28"},
-            "constraints": {"objectIsSchema": true}
+            "constraints": {"wantSchema": true}
         },
         "not": {
             "value": true,
             "reference": {"document": "validation", "section": "6.29"},
-            "constraints": {"objectIsSchema": true}
+            "constraints": {"wantSchema": true}
         },
         "format": {
             "value": true,

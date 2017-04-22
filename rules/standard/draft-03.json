@@ -160,7 +160,7 @@
         "extends": {
             "value": true,
             "reference": {"document": "core", "section": "5.26"},
-            "constraints": {"objectIsSchema": true}
+            "constraints": {"wantSchema": true}
         },
 
         "divisibleBy": {
@@ -204,12 +204,12 @@
         "items": {
             "value": true,
             "reference": {"document": "core", "section": "5.5"},
-            "constraints": {"objectIsSchema": true}
+            "constraints": {"wantSchema": true}
         },
         "additionalItems": {
             "value": true,
             "reference": {"document": "core", "section": "5.6"},
-            "constraints": {"objectIsSchema": true}
+            "constraints": {"wantSchema": true}
         },
         "maxItems": {
             "value": true,
@@ -231,7 +231,7 @@
         "properties": {
             "value": true,
             "reference": {"document": "core", "section": "5.2"},
-            "constraints": {"childObjectIsSchema": true}
+            "constraints": {"childWantSchema": true}
         },
         "maxProperties": {
             "value": false,
@@ -248,12 +248,12 @@
         "patternProperties": {
             "value": true,
             "reference": {"document": "core", "section": "5.3"},
-            "constraints": {"childObjectIsSchema": true}
+            "constraints": {"childWantSchema": true}
         },
         "additionalProperties": {
             "value": true,
             "reference": {"document": "core", "section": "5.4"},
-            "constraints": {"objectIsSchema": true}
+            "constraints": {"wantSchema": true}
         },
         "dependencies": {
             "value": true,
