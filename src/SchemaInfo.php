@@ -15,6 +15,7 @@ class SchemaInfo
     // spec URIs
     const SPEC_DRAFT_03_URI                     =  'http://json-schema.org/draft-03/schema#';
     const SPEC_DRAFT_04_URI                     =  'http://json-schema.org/draft-04/schema#';
+    const SPEC_DRAFT_06_URI                     =  'http://json-schema.org/draft-06/schema#';
 
     // internal spec identifiers
     const SPEC_MISSING_FILE                     = 'missing';     // spec file missing
@@ -33,6 +34,11 @@ class SchemaInfo
     // d05c (core) https://tools.ietf.org/html/draft-wright-json-schema-00
     // d05v (validation) https://tools.ietf.org/html/draft-wright-json-schema-validation-00
     // d05h (hyper-schema) https://tools.ietf.org/html/draft-wright-json-schema-hyperschema-00
+
+    const SPEC_DRAFT_06                         =  'draft-06';
+    // d06c (core) https://tools.ietf.org/html/draft-wright-json-schema-01
+    // d06v (validation) https://tools.ietf.org/html/draft-wright-json-schema-validation-01
+    // d06h (hyper-schema) https://tools.ietf.org/html/draft-wright-json-schema-hyperschema-01
 
     /** @var int Spec version */
     protected $specVersion = self::SPEC_NONE;
@@ -71,11 +77,12 @@ class SchemaInfo
 
             // make sure spec is valid
             if (!in_array($spec, array(
-                'draft-03',
-                'draft-04',
-                'draft-05',
-                'missing',
-                '../invalid',
+                self::SPEC_DRAFT_03,
+                self::SPEC_DRAFT_04,
+                self::SPEC_DRAFT_05,
+                self::SPEC_DRAFT_06,
+                self::SPEC_MISSING_FILE,
+                self::SPEC_INVALID_JSON,
             ))) {
                 throw new \InvalidArgumentException('Unknown schema spec');
             }
@@ -212,6 +219,8 @@ class SchemaInfo
             case self::SPEC_DRAFT_04: // draft-04 and draft-05 share the same meta-schema uri
             case self::SPEC_DRAFT_05:
                 return self::SPEC_DRAFT_04_URI;
+            case self::SPEC_DRAFT_06:
+                return self::SPEC_DRAFT_06_URI;
         }
 
         throw new \InvalidArgumentException('No URI defined for spec: ' . $this->specVersion);
@@ -234,8 +243,10 @@ class SchemaInfo
 
         // translate URI
         $matches = array();
-        if (preg_match('~^https?://json-schema.org/(draft-0[34])/schema($|#.*)~ui', $uri, $matches)) {
+        if (preg_match('~^https?://json-schema.org/(draft-0[346])/schema($|#.*)~ui', $uri, $matches)) {
             switch ($matches[1]) {
+                case 'draft-06':
+                    return self::SPEC_DRAFT_06;
                 case 'draft-04':
                     return self::SPEC_DRAFT_04;
                 case 'draft-03':

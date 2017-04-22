@@ -89,6 +89,9 @@
                 "phone": {"$ref": "#/definitions/rule"},
                 "uri": {"$ref": "#/definitions/rule"},
                 "uriref": {"$ref": "#/definitions/rule"},
+                "uri-reference": {"$ref": "#/definitions/rule"},
+                "uri-template": {"$ref": "#/definitions/rule"},
+                "json-pointer": {"$ref": "#/definitions/rule"},
                 "email": {"$ref": "#/definitions/rule"},
                 "ip-address": {"$ref": "#/definitions/rule"},
                 "ipv4": {"$ref": "#/definitions/rule"},
@@ -98,7 +101,8 @@
             },
             "required": [
                 "date-time", "date", "time", "utc-millisec", "regex", "color", "style", "phone",
-                "uri", "uriref", "email", "ip-address", "ipv4", "ipv6", "host-name", "hostname"
+                "uri", "uriref", "uri-reference", "uri-template", "json-pointer", "email",
+                "ip-address", "ipv4", "ipv6", "host-name", "hostname"
             ],
             "additionalProperties": false
         },
@@ -108,12 +112,14 @@
             "properties": {
                 "$ref": {"$ref": "#/definitions/rule"},
                 "$schema": {"$ref": "#/definitions/rule"},
+                "$id": {"$ref": "#/definitions/rule"},
                 "id": {"$ref": "#/definitions/rule"},
                 "definitions": {"$ref": "#/definitions/rule"},
 
                 "title": {"$ref": "#/definitions/rule"},
                 "description": {"$ref": "#/definitions/rule"},
                 "default": {"$ref": "#/definitions/rule"},
+                "examples": {"$ref": "#/definitions/rule"},
 
                 "disallow": {"$ref": "#/definitions/rule"},
                 "extends": {"$ref": "#/definitions/rule"},
@@ -134,6 +140,7 @@
                 "maxItems": {"$ref": "#/definitions/rule"},
                 "minItems": {"$ref": "#/definitions/rule"},
                 "uniqueItems": {"$ref": "#/definitions/rule"},
+                "contains": {"$ref": "#/definitions/rule"},
 
                 "properties": {"$ref": "#/definitions/rule"},
                 "maxProperties": {"$ref": "#/definitions/rule"},
@@ -142,8 +149,10 @@
                 "patternProperties": {"$ref": "#/definitions/rule"},
                 "additionalProperties": {"$ref": "#/definitions/rule"},
                 "dependencies": {"$ref": "#/definitions/rule"},
+                "propertyNames": {"$ref": "#/definitions/rule"},
 
                 "type": {"$ref": "#/definitions/rule"},
+                "const": {"$ref": "#/definitions/rule"},
                 "enum": {"$ref": "#/definitions/rule"},
                 "allOf": {"$ref": "#/definitions/rule"},
                 "anyOf": {"$ref": "#/definitions/rule"},
@@ -152,14 +161,14 @@
                 "format": {"$ref": "#/definitions/rule"}
             },
             "required": [
-                "$ref", "id", "definitions",
-                "title", "description", "default",
+                "$ref", "$schema", "$id", "id", "definitions",
+                "title", "description", "default", "examples",
                 "disallow", "extends",
                 "divisibleBy", "multipleOf", "maximum", "exclusiveMaximum", "minimum", "exclusiveMinimum",
                 "minLength", "maxLength", "pattern",
-                "items", "additionalItems", "maxItems", "minItems", "uniqueItems",
-                "properties", "maxProperties", "minProperties", "required", "patternProperties", "additionalProperties", "dependencies",
-                "type", "enum", "allOf", "anyOf", "oneOf", "not", "format"
+                "items", "additionalItems", "maxItems", "minItems", "uniqueItems", "contains",
+                "properties", "maxProperties", "minProperties", "required", "patternProperties", "additionalProperties", "dependencies", "propertyNames",
+                "type", "const", "enum", "allOf", "anyOf", "oneOf", "not", "format"
             ],
             "additionalProperties": false
         },
@@ -215,16 +224,25 @@
                     "$ref": "#/definitions/rule",
                     "description": "Whether 'additionalItems' MUST be a boolean or a valid schema object"
                 },
+                "additionalItemsMustBeSchema": {
+                    "$ref": "#/definitions/rule",
+                    "description": "Whether 'additionalItems' MUST be a valid schema object"
+                },
                 "allowSchemaInUnionType": {
                     "$ref": "#/definitions/rule",
                     "description": "Whether a schema may be used as an item within a 'type' array"
+                },
+                "allowBooleanSchema": {
+                    "$ref": "#/definitions/rule",
+                    "description": "Whether a schema may be a boolean"
                 }
             },
             "required": [
                 "allowUndefinedTypes", "selfDescriptiveSchema", "nullByteInString", "defaultAsFallbackValue",
                 "requiredBoolean", "simpleDependencies", "uniqueEnumItems", "formatIsOptional",
                 "provideDisableFormatOption", "customSchemaUriAsFormat", "additionalItemsMayBeTrue",
-                "additionalItemsMustBeBooleanOrSchema", "allowSchemaInUnionType"
+                "additionalItemsMustBeBooleanOrSchema", "additionalItemsMustBeSchema", "allowSchemaInUnionType",
+                "allowBooleanSchema"
             ],
             "additionalProperties": false
         }

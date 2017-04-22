@@ -76,6 +76,18 @@
             "value": false,
             "reference": {"comment": "Not present in spec"}
         },
+        "uri-reference": {
+            "value": false,
+            "reference": {"comment": "Replaces 'uriref' after draft-05"}
+        },
+        "uri-template": {
+            "value": false,
+            "reference": {"comment": "Not present in spec"}
+        },
+        "json-pointer": {
+            "value": false,
+            "reference": {"comment": "Not present in spec"}
+        },
         "email": {
             "value": true,
             "reference": {"document": "core", "section": "5.23"}
@@ -111,6 +123,10 @@
             "value": true,
             "reference": {"document": "core", "section": "5.29"}
         },
+        "$id": {
+            "value": false,
+            "reference": {"comment": "Replaces 'id' from draft-06"}
+        },
         "id": {
             "value": true,
             "reference": {"document": "core", "section": "5.27"}
@@ -131,6 +147,10 @@
         "default": {
             "value": true,
             "reference": {"document": "core", "section": "5.20"}
+        },
+        "examples": {
+            "value": false,
+            "reference": {"comment": "Not present in spec"}
         },
 
         "disallow": {
@@ -203,6 +223,10 @@
             "value": true,
             "reference": {"document": "core", "section": "5.15"}
         },
+        "contains": {
+            "value": true,
+            "reference": {"comment": "Not present in spec"}
+        },
 
         "properties": {
             "value": true,
@@ -235,10 +259,18 @@
             "value": true,
             "reference": {"document": "core", "section": "5.8"}
         },
+        "propertyNames": {
+            "value": false,
+            "reference": {"comment": "Not present in spec"}
+        },
 
         "type": {
             "value": true,
             "reference": {"document": "core", "section": "5.1"}
+        },
+        "const": {
+            "value": true,
+            "reference": {"comment": "Not present in spec"}
         },
         "enum": {
             "value": true,
@@ -315,9 +347,17 @@
             "value": true,
             "reference": {"document": "core", "section": "5.6"}
         },
+        "additionalItemsMustBeSchema": {
+            "value": false,
+            "reference": {"document": "validation", "section": "5.6"}
+        },
         "allowSchemaInUnionType": {
             "value": true,
             "reference": {"document": "core", "section": "5.1"}
+        },
+        "allowBooleanSchema": {
+            "value": false,
+            "reference": {"document": "core", "section": "5"}
         }
     }
 }

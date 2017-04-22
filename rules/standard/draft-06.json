@@ -1,5 +1,5 @@
 {
-    "uri": "http://json-schema.org/draft-04/schema#",
+    "uri": "http://json-schema.org/draft-06/schema#",
     "types": {
         "string": {
             "value": true,
@@ -10,8 +10,8 @@
             "reference": {"document": "core", "section": "4.2"}
         },
         "integer": {
-            "value": false,
-            "reference": {"comment": "Accidentally omitted from draft-05 spec, but was intended to be allowed"}
+            "value": true,
+            "reference": {"document": "validation", "section": "6.25"}
         },
         "boolean": {
             "value": true,
@@ -38,7 +38,7 @@
     "formats": {
         "date-time": {
             "value": true,
-            "reference": {"document": "validation", "section": "7.3.1"}
+            "reference": {"document": "validation", "section": "8.3.1"}
         },
         "date": {
             "value": false,
@@ -70,27 +70,27 @@
         },
         "uri": {
             "value": true,
-            "reference": {"document": "validation", "section": "7.3.6"}
+            "reference": {"document": "validation", "section": "8.3.6"}
         },
         "uriref": {
-            "value": true,
-            "reference": {"document": "validation", "section": "7.3.7"}
+            "value": false,
+            "reference": {"comment": "Renamed to 'uri-reference' after draft-05"}
         },
         "uri-reference": {
-            "value": false,
-            "reference": {"comment": "Replaces 'uriref' after draft-05"}
+            "value": true,
+            "reference": {"document": "validation", "section": "8.3.7"}
         },
         "uri-template": {
-            "value": false,
-            "reference": {"comment": "Not present in spec"}
+            "value": true,
+            "reference": {"document": "validation", "section": "8.3.8"}
         },
         "json-pointer": {
-            "value": false,
-            "reference": {"comment": "Not present in spec"}
+            "value": true,
+            "reference": {"document": "validation", "section": "8.3.9"}
         },
         "email": {
             "value": true,
-            "reference": {"document": "validation", "section": "7.3.2"}
+            "reference": {"document": "validation", "section": "8.3.2"}
         },
         "ip-address": {
             "value": false,
@@ -98,60 +98,60 @@
         },
         "ipv4": {
             "value": true,
-            "reference": {"document": "validation", "section": "7.3.4"}
+            "reference": {"document": "validation", "section": "8.3.4"}
         },
         "ipv6": {
             "value": true,
-            "reference": {"document": "validation", "section": "7.3.5"}
+            "reference": {"document": "validation", "section": "8.3.5"}
         },
         "host-name": {
             "value": false,
-            "reference": {"comment": "Renamed to 'hostname' after draft-03"}
+            "reference": {"comment": "Not present in spec"}
         },
         "hostname": {
-            "value": true,
-            "reference": {"document": "validation", "section": "7.3.3"}
+            "value": false,
+            "reference": {"comment": "Not present in spec"}
         }
     },
 
     "keywords": {
         "$ref": {
             "value": true,
-            "reference": {"document": "core", "section": "7"}
+            "reference": {"document": "core", "section": "8"}
         },
         "$schema": {
             "value": true,
-            "reference": {"document": "core", "section": "6"}
+            "reference": {"document": "core", "section": "7"}
         },
         "$id": {
             "value": false,
-            "reference": {"comment": "Replaces 'id' from draft-06"}
+            "reference": {"document": "core", "section": "9.2"}
         },
         "id": {
             "value": true,
-            "reference": {"document": "core", "section": "8.2"}
+            "reference": {"comment": "Renamed to '$id' from draft-06"}
         },
         "definitions": {
             "value": true,
-            "reference": {"document": "validation", "section": "5.26"},
+            "reference": {"document": "validation", "section": "7.1"},
             "constraints": {"childObjectIsSchema": true}
         },
 
         "title": {
             "value": true,
-            "reference": {"document": "validation", "section": "6.1"}
+            "reference": {"document": "validation", "section": "7.2"}
         },
         "description": {
             "value": true,
-            "reference": {"document": "validation", "section": "6.1"}
+            "reference": {"document": "validation", "section": "7.2"}
         },
         "default": {
             "value": true,
-            "reference": {"document": "validation", "section": "6.2"}
+            "reference": {"document": "validation", "section": "7.3"}
         },
         "examples": {
-            "value": false,
-            "reference": {"comment": "Not present in spec"}
+            "value": true,
+            "reference": {"document": "validation", "section": "7.4"}
         },
 
         "disallow": {
@@ -169,143 +169,145 @@
         },
         "multipleOf": {
             "value": true,
-            "reference": {"document": "validation", "section": "5.1"}
+            "reference": {"document": "validation", "section": "6.1"}
         },
         "maximum": {
             "value": true,
-            "reference": {"document": "validation", "section": "5.2"}
+            "reference": {"document": "validation", "section": "6.2"}
         },
         "exclusiveMaximum": {
             "value": true,
-            "reference": {"document": "validation", "section": "5.3"}
+            "reference": {"document": "validation", "section": "6.3"}
         },
         "minimum": {
             "value": true,
-            "reference": {"document": "validation", "section": "5.4"}
+            "reference": {"document": "validation", "section": "6.4"}
         },
         "exclusiveMinimum": {
             "value": true,
-            "reference": {"document": "validation", "section": "5.5"}
+            "reference": {"document": "validation", "section": "6.5"}
         },
 
         "minLength": {
             "value": true,
-            "reference": {"document": "validation", "section": "5.7"}
+            "reference": {"document": "validation", "section": "6.7"}
         },
         "maxLength": {
             "value": true,
-            "reference": {"document": "validation", "section": "5.6"}
+            "reference": {"document": "validation", "section": "6.6"}
         },
         "pattern": {
             "value": true,
-            "reference": {"document": "validation", "section": "5.8"}
+            "reference": {"document": "validation", "section": "6.8"}
         },
 
         "items": {
             "value": true,
-            "reference": {"document": "validation", "section": "5.9"},
+            "reference": {"document": "validation", "section": "6.9"},
             "constraints": {"objectIsSchema": true}
         },
         "additionalItems": {
             "value": true,
-            "reference": {"document": "validation", "section": "5.9"},
+            "reference": {"document": "validation", "section": "6.10"},
             "constraints": {"objectIsSchema": true}
         },
         "maxItems": {
             "value": true,
-            "reference": {"document": "validation", "section": "5.10"}
+            "reference": {"document": "validation", "section": "6.11"}
         },
         "minItems": {
             "value": true,
-            "reference": {"document": "validation", "section": "5.11"}
+            "reference": {"document": "validation", "section": "6.12"}
         },
         "uniqueItems": {
             "value": true,
-            "reference": {"document": "validation", "section": "5.12"}
+            "reference": {"document": "validation", "section": "6.13"}
         },
         "contains": {
             "value": true,
-            "reference": {"comment": "Not present in spec"}
+            "reference": {"document": "validation", "section": "6.14"},
+            "constraints": {"objectIsSchema": true}
         },
 
         "properties": {
             "value": true,
-            "reference": {"document": "validation", "section": "5.16"},
+            "reference": {"document": "validation", "section": "6.18"},
             "constraints": {"childObjectIsSchema": true}
         },
         "maxProperties": {
             "value": true,
-            "reference": {"document": "validation", "section": "5.13"}
+            "reference": {"document": "validation", "section": "6.15"}
         },
         "minProperties": {
             "value": true,
-            "reference": {"document": "validation", "section": "5.14"}
+            "reference": {"document": "validation", "section": "6.16"}
         },
         "required": {
             "value": true,
-            "reference": {"document": "validation", "section": "5.15"}
+            "reference": {"document": "validation", "section": "6.17"}
         },
         "patternProperties": {
             "value": true,
-            "reference": {"document": "validation", "section": "5.17"},
+            "reference": {"document": "validation", "section": "6.19"},
             "constraints": {"childObjectIsSchema": true}
         },
         "additionalProperties": {
             "value": true,
-            "reference": {"document": "validation", "section": "5.18"},
+            "reference": {"document": "validation", "section": "6.20"},
             "constraints": {"objectIsSchema": true}
         },
         "dependencies": {
             "value": true,
-            "reference": {"document": "validation", "section": "5.19"}
+            "reference": {"document": "validation", "section": "6.21"}
         },
         "propertyNames": {
-            "value": false,
-            "reference": {"comment": "Not present in spec"}
+            "value": true,
+            "reference": {"document": "validation", "section": "6.22"},
+            "constraints": {"objectIsSchema": true}
         },
 
         "type": {
             "value": true,
-            "reference": {"document": "validation", "section": "5.21"}
+            "reference": {"document": "validation", "section": "6.25"}
         },
         "const": {
             "value": true,
-            "reference": {"comment": "Not present in spec"}
+            "reference": {"document": "validation", "section": "6.24"}
         },
         "enum": {
             "value": true,
-            "reference": {"document": "validation", "section": "5.20"}
+            "reference": {"document": "validation", "section": "6.23"}
         },
         "allOf": {
             "value": true,
-            "reference": {"document": "validation", "section": "5.22"},
+            "reference": {"document": "validation", "section": "6.26"},
             "constraints": {"objectIsSchema": true}
         },
         "anyOf": {
             "value": true,
-            "reference": {"document": "validation", "section": "5.23"},
+            "reference": {"document": "validation", "section": "6.27"},
             "constraints": {"objectIsSchema": true}
         },
         "oneOf": {
             "value": true,
-            "reference": {"document": "validation", "section": "5.24"},
+            "reference": {"document": "validation", "section": "6.28"},
             "constraints": {"objectIsSchema": true}
         },
         "not": {
             "value": true,
-            "reference": {"document": "validation", "section": "5.5.6"},
+            "reference": {"document": "validation", "section": "6.29"},
             "constraints": {"objectIsSchema": true}
         },
         "format": {
             "value": true,
-            "reference": {"document": "validation", "section": "7"}
+            "reference": {"document": "validation", "section": "8"}
         }
     },
 
     "rules": {
         "allowUndefinedTypes": {
             "value": false,
-            "reference": {"document": "validation", "section": "5.21"}
+            "reference": {"document": "validation", "section": "6.25"}
         },
         "selfDescriptiveSchema": {
             "value": false,
@@ -317,50 +319,50 @@
         },
         "defaultAsFallbackValue": {
             "value": false,
-            "reference": {"document": "validation", "section": "6.2"}
+            "reference": {"document": "validation", "section": "7.3"}
         },
         "requiredBoolean": {
             "value": false,
-            "reference": {"document": "validation", "section": "5.15"}
+            "reference": {"document": "validation", "section": "6.17"}
         },
         "simpleDependencies": {
             "value": false,
-            "reference": {"document": "validation", "section": "5.19"}
+            "reference": {"document": "validation", "section": "6.21"}
         },
         "uniqueEnumItems": {
             "value": false,
-            "reference": {"document": "validation", "section": "5.20"}
+            "reference": {"document": "validation", "section": "6.23"}
         },
         "formatIsOptional": {
             "value": true,
-            "reference": {"document": "validation", "section": "7.2"}
+            "reference": {"document": "validation", "section": "8.2"}
         },
         "provideDisableFormatOption": {
             "value": true,
-            "reference": {"document": "validation", "section": "7.2"}
+            "reference": {"document": "validation", "section": "8.2"}
         },
         "customSchemaUriAsFormat": {
             "value": false,
             "reference": {"comment": "Not present in spec"}
         },
         "additionalItemsMayBeTrue": {
-            "value": true,
-            "reference": {"document": "validation", "section": "5.9"}
+            "value": false,
+            "reference": {"document": "validation", "section": "6.10"}
         },
         "additionalItemsMustBeBooleanOrSchema": {
-            "value": true,
-            "reference": {"document": "validation", "section": "5.9"}
+            "value": false,
+            "reference": {"document": "validation", "section": "6.10"}
         },
         "additionalItemsMustBeSchema": {
-            "value": false,
-            "reference": {"document": "validation", "section": "5.9"}
+            "value": true,
+            "reference": {"document": "validation", "section": "6.10"}
         },
         "allowSchemaInUnionType": {
             "value": false,
-            "reference": {"document": "validation", "section": "5.21"}
+            "reference": {"document": "validation", "section": "6.25"}
         },
         "allowBooleanSchema": {
-            "value": false,
+            "value": true,
             "reference": {"document": "core", "section": "4.4"}
         }
     }
