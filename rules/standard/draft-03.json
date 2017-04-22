@@ -1,5 +1,5 @@
 {
-    "uri": "http://json-schema.org/draft-04/schema#",
+    "uri": "http://json-schema.org/draft-03/schema#",
     "types": {
         "string": {
             "value": true,
