@@ -111,6 +111,7 @@ class SchemaInfoTest extends \PHPUnit\Framework\TestCase
 
         $this->assertTrue($constraints->wantSchema);
         $this->assertFalse($constraints->childWantSchema);
+        $this->assertEquals('validation', $constraints->vocabulary);
     }
 
     public function testGetSchema()

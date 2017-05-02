@@ -11,6 +11,9 @@
                 "comment": {
                     "type": "string"
                 },
+                "vocabulary": {
+                    "type": "string"
+                },
                 "reference": {
                     "type": "object",
                     "properties": {
@@ -50,7 +53,7 @@
                     "additionalProperties": false
                 }
             },
-            "required": ["value", "reference"],
+            "required": ["value", "vocabulary", "reference"],
             "additionalProperties": false
         }
     },

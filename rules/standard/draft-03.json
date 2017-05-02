@@ -3,34 +3,42 @@
     "types": {
         "string": {
             "value": true,
+            "vocabulary": "type",
             "reference": {"document": "core", "section": "5.1"}
         },
         "number": {
             "value": true,
+            "vocabulary": "type",
             "reference": {"document": "core", "section": "5.1"}
         },
         "integer": {
             "value": true,
+            "vocabulary": "type",
             "reference": {"document": "core", "section": "5.1"}
         },
         "boolean": {
             "value": true,
+            "vocabulary": "type",
             "reference": {"document": "core", "section": "5.1"}
         },
         "object": {
             "value": true,
+            "vocabulary": "type",
             "reference": {"document": "core", "section": "5.1"}
         },
         "array": {
             "value": true,
+            "vocabulary": "type",
             "reference": {"document": "core", "section": "5.1"}
         },
         "null": {
             "value": true,
+            "vocabulary": "type",
             "reference": {"document": "core", "section": "5.1"}
         },
         "any": {
             "value": true,
+            "vocabulary": "type",
             "reference": {"document": "core", "section": "5.1"}
         }
     },
@@ -38,78 +46,97 @@
     "formats": {
         "date-time": {
             "value": true,
+            "vocabulary": "format",
             "reference": {"document": "core", "section": "5.23"}
         },
         "date": {
             "value": true,
+            "vocabulary": "format",
             "reference": {"document": "core", "section": "5.23"}
         },
         "time": {
             "value": true,
+            "vocabulary": "format",
             "reference": {"document": "core", "section": "5.23"}
         },
         "utc-millisec": {
             "value": true,
+            "vocabulary": "format",
             "reference": {"document": "core", "section": "5.23"}
         },
         "regex": {
             "value": true,
+            "vocabulary": "format",
             "reference": {"document": "core", "section": "5.23"}
         },
         "color": {
             "value": true,
+            "vocabulary": "format",
             "reference": {"document": "core", "section": "5.23"}
         },
         "style": {
             "value": true,
+            "vocabulary": "format",
             "reference": {"document": "core", "section": "5.23"}
         },
         "phone": {
             "value": true,
+            "vocabulary": "format",
             "reference": {"document": "core", "section": "5.23"}
         },
         "uri": {
             "value": true,
+            "vocabulary": "format",
             "reference": {"document": "core", "section": "5.23"}
         },
         "uriref": {
             "value": false,
+            "vocabulary": "format",
             "reference": {"comment": "Not present in spec"}
         },
         "uri-reference": {
             "value": false,
+            "vocabulary": "format",
             "reference": {"comment": "Replaces 'uriref' after draft-05"}
         },
         "uri-template": {
             "value": false,
+            "vocabulary": "format",
             "reference": {"comment": "Not present in spec"}
         },
         "json-pointer": {
             "value": false,
+            "vocabulary": "format",
             "reference": {"comment": "Not present in spec"}
         },
         "email": {
             "value": true,
+            "vocabulary": "format",
             "reference": {"document": "core", "section": "5.23"}
         },
         "ip-address": {
             "value": true,
+            "vocabulary": "format",
             "reference": {"document": "core", "section": "5.23"}
         },
         "ipv4": {
             "value": false,
+            "vocabulary": "format",
             "reference": {"comment": "Replaces 'ip-address' from draft-04"}
         },
         "ipv6": {
             "value": true,
+            "vocabulary": "format",
             "reference": {"document": "core", "section": "5.23"}
         },
         "host-name": {
             "value": true,
+            "vocabulary": "format",
             "reference": {"document": "core", "section": "5.23"}
         },
         "hostname": {
             "value": false,
+            "vocabulary": "format",
             "reference": {"comment": "Replaces 'host-name' from draft-04"}
         }
     },
@@ -117,183 +144,225 @@
     "keywords": {
         "$ref": {
             "value": true,
+            "vocabulary": "core",
             "reference": {"document": "core", "section": "5.28"}
         },
         "$schema": {
             "value": true,
+            "vocabulary": "core",
             "reference": {"document": "core", "section": "5.29"}
         },
         "$id": {
             "value": false,
+            "vocabulary": "core",
             "reference": {"comment": "Replaces 'id' from draft-06"}
         },
         "id": {
             "value": true,
+            "vocabulary": "core",
             "reference": {"document": "core", "section": "5.27"}
         },
+
         "definitions": {
             "value": false,
+            "vocabulary": "metadata",
             "reference": {"comment": "Not present in spec"}
         },
-
         "title": {
             "value": true,
+            "vocabulary": "metadata",
             "reference": {"document": "core", "section": "5.21"}
         },
         "description": {
             "value": true,
+            "vocabulary": "metadata",
             "reference": {"document": "core", "section": "5.22"}
         },
         "default": {
             "value": true,
+            "vocabulary": "metadata",
             "reference": {"document": "core", "section": "5.20"}
         },
         "examples": {
             "value": false,
+            "vocabulary": "metadata",
             "reference": {"comment": "Not present in spec"}
         },
 
         "disallow": {
             "value": true,
+            "vocabulary": "validation",
             "reference": {"document": "core", "section": "5.25"}
         },
         "extends": {
             "value": true,
+            "vocabulary": "validation",
             "reference": {"document": "core", "section": "5.26"},
             "constraints": {"wantSchema": true}
         },
 
         "divisibleBy": {
             "value": true,
+            "vocabulary": "validation",
             "reference": {"document": "core", "section": "5.24"}
         },
         "multipleOf": {
             "value": false,
+            "vocabulary": "validation",
             "reference": {"comment": "Replaces to 'divisibleBy' from draft-04"}
         },
         "maximum": {
             "value": true,
+            "vocabulary": "validation",
             "reference": {"document": "core", "section": "5.10"}
         },
         "exclusiveMaximum": {
             "value": true,
+            "vocabulary": "validation",
             "reference": {"document": "core", "section": "5.12"}
         },
         "minimum": {
             "value": true,
+            "vocabulary": "validation",
             "reference": {"document": "core", "section": "5.9"}
         },
         "exclusiveMinimum": {
             "value": true,
+            "vocabulary": "validation",
             "reference": {"document": "core", "section": "5.11"}
         },
 
         "minLength": {
             "value": true,
+            "vocabulary": "validation",
             "reference": {"document": "core", "section": "5.17"}
         },
         "maxLength": {
             "value": true,
+            "vocabulary": "validation",
             "reference": {"document": "core", "section": "5.18"}
         },
         "pattern": {
             "value": true,
+            "vocabulary": "validation",
             "reference": {"document": "core", "section": "5.16"}
         },
 
         "items": {
             "value": true,
+            "vocabulary": "validation",
             "reference": {"document": "core", "section": "5.5"},
             "constraints": {"wantSchema": true}
         },
         "additionalItems": {
             "value": true,
+            "vocabulary": "validation",
             "reference": {"document": "core", "section": "5.6"},
             "constraints": {"wantSchema": true}
         },
         "maxItems": {
             "value": true,
+            "vocabulary": "validation",
             "reference": {"document": "core", "section": "5.14"}
         },
         "minItems": {
             "value": true,
+            "vocabulary": "validation",
             "reference": {"document": "core", "section": "5.13"}
         },
         "uniqueItems": {
             "value": true,
+            "vocabulary": "validation",
             "reference": {"document": "core", "section": "5.15"}
         },
         "contains": {
             "value": true,
+            "vocabulary": "validation",
             "reference": {"comment": "Not present in spec"}
         },
 
         "properties": {
             "value": true,
+            "vocabulary": "validation",
             "reference": {"document": "core", "section": "5.2"},
             "constraints": {"childWantSchema": true}
         },
         "maxProperties": {
             "value": false,
+            "vocabulary": "validation",
             "reference": {"comment": "Not present in spec"}
         },
         "minProperties": {
             "value": false,
+            "vocabulary": "validation",
             "reference": {"comment": "Not present in spec"}
         },
         "required": {
             "value": true,
+            "vocabulary": "validation",
             "reference": {"document": "core", "section": "5.7"}
         },
         "patternProperties": {
             "value": true,
+            "vocabulary": "validation",
             "reference": {"document": "core", "section": "5.3"},
             "constraints": {"childWantSchema": true}
         },
         "additionalProperties": {
             "value": true,
+            "vocabulary": "validation",
             "reference": {"document": "core", "section": "5.4"},
             "constraints": {"wantSchema": true}
         },
         "dependencies": {
             "value": true,
+            "vocabulary": "validation",
             "reference": {"document": "core", "section": "5.8"}
         },
         "propertyNames": {
             "value": false,
+            "vocabulary": "validation",
             "reference": {"comment": "Not present in spec"}
         },
 
         "type": {
             "value": true,
+            "vocabulary": "validation",
             "reference": {"document": "core", "section": "5.1"}
         },
         "const": {
             "value": true,
+            "vocabulary": "validation",
             "reference": {"comment": "Not present in spec"}
         },
         "enum": {
             "value": true,
+            "vocabulary": "validation",
             "reference": {"document": "core", "section": "5.19"}
         },
         "allOf": {
             "value": false,
+            "vocabulary": "validation",
             "reference": {"comment": "Not present in spec"}
         },
         "anyOf": {
             "value": false,
+            "vocabulary": "validation",
             "reference": {"comment": "Not present in spec"}
         },
         "oneOf": {
             "value": false,
+            "vocabulary": "validation",
             "reference": {"comment": "Not present in spec"}
         },
         "not": {
             "value": false,
+            "vocabulary": "validation",
             "reference": {"comment": "Not present in spec"}
         },
         "format": {
             "value": true,
+            "vocabulary": "validation",
             "reference": {"document": "core", "section": "5.23"}
         }
     },
@@ -301,62 +370,77 @@
     "rules": {
         "allowUndefinedTypes": {
             "value": true,
+            "vocabulary": "spec-info",
             "reference": {"document": "core", "section": "5.1"}
         },
         "selfDescriptiveSchema": {
             "value": false,
+            "vocabulary": "spec-info",
             "reference": {"comment": "Not present in spec"}
         },
         "nullByteInString": {
             "value": false,
+            "vocabulary": "spec-info",
             "reference": {"comment": "Not present in spec"}
         },
         "defaultAsFallbackValue": {
             "value": true,
+            "vocabulary": "spec-info",
             "reference": {"document": "core", "section": "5.20"}
         },
         "requiredBoolean": {
             "value": true,
+            "vocabulary": "spec-info",
             "reference": {"document": "core", "section": "5.7"}
         },
         "simpleDependencies": {
             "value": true,
+            "vocabulary": "spec-info",
             "reference": {"document": "core", "section": "5.8"}
         },
         "uniqueEnumItems": {
             "value": false,
+            "vocabulary": "spec-info",
             "reference": {"document": "core", "section": "5.19"}
         },
         "formatIsOptional": {
             "value": true,
+            "vocabulary": "spec-info",
             "reference": {"document": "core", "section": "5.23"}
         },
         "provideDisableFormatOption": {
             "value": false,
+            "vocabulary": "spec-info",
             "reference": {"comment": "Not present in spec"}
         },
         "customSchemaUriAsFormat": {
             "value": true,
+            "vocabulary": "spec-info",
             "reference": {"document": "core", "section": "5.23"}
         },
         "additionalItemsMayBeTrue": {
             "value": false,
+            "vocabulary": "spec-info",
             "reference": {"document": "core", "section": "5.6"}
         },
         "additionalItemsMustBeBooleanOrSchema": {
             "value": true,
+            "vocabulary": "spec-info",
             "reference": {"document": "core", "section": "5.6"}
         },
         "additionalItemsMustBeSchema": {
             "value": false,
+            "vocabulary": "spec-info",
             "reference": {"document": "validation", "section": "5.6"}
         },
         "allowSchemaInUnionType": {
             "value": true,
+            "vocabulary": "spec-info",
             "reference": {"document": "core", "section": "5.1"}
         },
         "allowBooleanSchema": {
             "value": false,
+            "vocabulary": "spec-info",
             "reference": {"document": "core", "section": "5"}
         }
     }
