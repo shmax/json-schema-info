@@ -31,6 +31,7 @@ class SchemaInfoTest extends \PHPUnit\Framework\TestCase
         return array(
             array('http://json-schema.org/draft-03/schema'),
             array('http://json-schema.org/draft-04/schema'),
+            array('http://json-schema.org/draft-06/schema'),
             array(SchemaInfo::SPEC_DRAFT_05),
             array('http://json-schema.org/draft-05/schema', '\InvalidArgumentException'),
             array(false, '\InvalidArgumentException'),
@@ -127,6 +128,7 @@ class SchemaInfoTest extends \PHPUnit\Framework\TestCase
             array(SchemaInfo::SPEC_DRAFT_03, 'http://json-schema.org/draft-03/schema#'),
             array(SchemaInfo::SPEC_DRAFT_04, 'http://json-schema.org/draft-04/schema#'),
             array(SchemaInfo::SPEC_DRAFT_05, 'http://json-schema.org/draft-04/schema#'),
+            array(SchemaInfo::SPEC_DRAFT_06, 'http://json-schema.org/draft-06/schema#'),
         );
     }
 
