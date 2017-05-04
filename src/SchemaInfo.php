@@ -126,7 +126,7 @@ class SchemaInfo
      * @param \StdClass $constraints constraints object to set
      * @return bool
      */
-    public function rule($ruleName, $section = 'rules', &$constraints = null, &$vocabulary = null)
+    public function rule($ruleName, $section = 'rules', &$constraints = null)
     {
         if (!isset($this->specInfo->$section)) {
             throw new \InvalidArgumentException("Invalid section: $section");
