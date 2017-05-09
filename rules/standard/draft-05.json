@@ -446,6 +446,11 @@
             "value": false,
             "vocabulary": "spec-info",
             "reference": {"document": "core", "section": "4.4"}
+        },
+        "allowIntegerWithFractionalPart": {
+            "value": false,
+            "vocabulary": "spec-info",
+            "reference": {"comment": "integer type not present in spec"}
         }
     }
 }

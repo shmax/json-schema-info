@@ -238,6 +238,10 @@
                 "allowBooleanSchema": {
                     "$ref": "#/definitions/rule",
                     "description": "Whether a schema may be a boolean"
+                },
+                "allowIntegerWithFractionalPart": {
+                    "$ref": "#/definitions/rule",
+                    "description": "Whether an integer may include a (zero) fractional part"
                 }
             },
             "required": [
@@ -245,7 +249,7 @@
                 "requiredBoolean", "simpleDependencies", "uniqueEnumItems", "formatIsOptional",
                 "provideDisableFormatOption", "customSchemaUriAsFormat", "additionalItemsMayBeTrue",
                 "additionalItemsMustBeBooleanOrSchema", "additionalItemsMustBeSchema", "allowSchemaInUnionType",
-                "allowBooleanSchema"
+                "allowBooleanSchema", "allowIntegerWithFractionalPart"
             ],
             "additionalProperties": false
         }

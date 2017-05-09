@@ -442,6 +442,11 @@
             "value": false,
             "vocabulary": "spec-info",
             "reference": {"document": "core", "section": "5"}
+        },
+        "allowIntegerWithFractionalPart": {
+            "value": false,
+            "vocabulary": "spec-info",
+            "reference": {"document": "core", "section": "5.1"}
         }
     }
 }

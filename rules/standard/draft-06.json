@@ -448,6 +448,11 @@
             "value": true,
             "vocabulary": "spec-info",
             "reference": {"document": "core", "section": "4.4"}
+        },
+        "allowIntegerWithFractionalPart": {
+            "value": true,
+            "vocabulary": "spec-info",
+            "reference": {"document": "validation", "section": "6.25"}
         }
     }
 }
