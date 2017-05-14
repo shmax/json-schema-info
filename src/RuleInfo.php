@@ -24,7 +24,8 @@ class RuleInfo extends \StdClass
      * @param \StdClass $ruleInfo Defined rule information
      * @param \StdClass $schema Ruleset schema
      */
-    public function __construct($ruleInfo, $schema) {
+    public function __construct($ruleInfo, $schema)
+    {
         $this->info = $ruleInfo;
         $this->infoRuleList = $schema->additionalProperties->additionalProperties->properties->info->properties;
     }
