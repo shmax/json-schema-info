@@ -1,0 +1,44 @@
+{
+    "$schema": "http://json-schema.org/draft-06/schema#",
+    "type": "object",
+    "additionalProperties": {
+        "type": "object",
+        "additionalProperties": {
+            "type": "object",
+            "properties": {
+                "synonym": {
+                    "description": "An array of alternative keywords with the same meaning",
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "info": {
+                    "description": "Implementation rules for the current keyword",
+                    "properties": {
+                        "isSchema": {
+                            "description": "Whether the keyword value is a schema",
+                            "type": "boolean",
+                            "default": false
+                        },
+                        "isSchemaContainer": {
+                            "description": "Whether the keyword value's children are schemas",
+                            "type": "boolean",
+                            "default": false
+                        }
+                    },
+                    "additionalProperties": false
+                },
+                "description": {
+                    "description": "A description of the rule",
+                    "type": "string"
+                },
+                "comment": {
+                    "description": "An additional comment on the rule for a specific standard version",
+                    "type": "string"
+                }
+            },
+            "additionalProperties": false
+        }
+    }
+}

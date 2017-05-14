@@ -1,0 +1,62 @@
+{
+    "type": {
+        "null": {},
+        "boolean": {},
+        "number": {},
+        "integer": {},
+        "string": {},
+        "array": {},
+        "object": {}
+    },
+    "format": {
+        "date-time": {},
+        "uri": {},
+        "email": {},
+        "ipv4": {},
+        "ipv6": {},
+        "hostname": {}
+    },
+    "core": {
+        "$ref": {},
+        "$schema": {},
+        "id": {}
+    },
+    "metadata": {
+        "definitions": {},
+        "title": {},
+        "description": {},
+        "default": {}
+    },
+    "validation": {
+        "multipleOf": {},
+        "maximum": {},
+        "exclusiveMaximum": {},
+        "minimum": {},
+        "exclusiveMinimum": {},
+        "minLength": {},
+        "maxLength": {},
+        "pattern": {},
+        "items": {},
+        "additionalItems": {},
+        "maxItems": {},
+        "minItems": {},
+        "uniqueItems": {},
+        "properties": {},
+        "patternProperties": {},
+        "additionalProperties": {},
+        "required": {},
+        "maxProperties": {},
+        "minProperties": {},
+        "dependencies": {},
+        "type": {},
+        "enum": {},
+        "allOf": {},
+        "anyOf": {},
+        "oneOf": {},
+        "not": {},
+        "format": {}
+    },
+    "standard": {
+        "selfDescriptiveMetaSchema": {}
+    }
+}

@@ -1,0 +1,70 @@
+{
+    "type": {
+        "null": {},
+        "boolean": {},
+        "number": {},
+        "integer": {},
+        "string": {},
+        "array": {},
+        "object": {},
+        "any": {}
+    },
+    "format": {
+        "date-time": {},
+        "date": {},
+        "time": {},
+        "utc-millisec": {},
+        "regex": {},
+        "color": {},
+        "style": {},
+        "phone": {},
+        "uri": {},
+        "email": {},
+        "ip-address": {},
+        "ipv6": {},
+        "host-name": {}
+    },
+    "core": {
+        "$ref": {},
+        "$schema": {},
+        "id": {}
+    },
+    "metadata": {
+        "title": {},
+        "description": {},
+        "default": {}
+    },
+    "validation": {
+        "disallow": {},
+        "extends": {},
+        "divisibleBy": {},
+        "maximum": {},
+        "exclusiveMaximum": {},
+        "minimum": {},
+        "exclusiveMinimum": {},
+        "minLength": {},
+        "maxLength": {},
+        "pattern": {},
+        "items": {},
+        "additionalItems": {},
+        "maxItems": {},
+        "minItems": {},
+        "uniqueItems": {},
+        "properties": {},
+        "patternProperties": {},
+        "additionalProperties": {},
+        "required": {},
+        "dependencies": {},
+        "type": {},
+        "enum": {},
+        "format": {}
+    },
+    "standard": {
+        "allowUndefinedTypes": {},
+        "requiredIsBoolean": {},
+        "allowSimpleDependencies": {},
+        "formatSchemaURI": {},
+        "allowSchemaInUnionType": {},
+        "allowAdditionalItemsBoolean": {}
+    }
+}
