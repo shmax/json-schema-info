@@ -25,6 +25,23 @@ class SchemaInfoTest extends \PHPUnit\Framework\TestCase
         );
     }
 
+    /** @dataProvider dataSpecList */
+    // check all rules are present in the base & correctly typed
+    public function testRulesPresentInBase($spec)
+    {
+        $base = json_decode(file_get_contents(__DIR__ . '/../rules/base.json'));
+        $spec = json_decode(file_get_contents(__DIR__ . "/../rules/standard/$spec.json"));
+
+        foreach ($spec as $section => $sectionDefinition) {
+            $this->assertTrue(property_exists($base, $section));
+            $this->assertInstanceOf('\StdClass', $sectionDefinition);
+            foreach ($sectionDefinition as $rule => $ruleDefinition) {
+                $this->assertTrue(property_exists($base->$section, $rule));
+                $this->assertInstanceOf('\StdClass', $ruleDefinition);
+            }
+        }
+    }
+
     /** @dataProvider dataValidateStandard */
     // ensure the standard rulesets are valid
     public function testValidateStandard($uri)
