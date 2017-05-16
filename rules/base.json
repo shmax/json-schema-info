@@ -169,6 +169,9 @@
         },
         "allowAdditionalItemsBoolean": {
             "description": "Whether 'additionalItems' may be a boolean, despite 'allowBooleanSchema'"
+        },
+        "exclusiveMinMaxIsNumber": {
+            "description": "Whether 'exclusiveMinimum' & 'exclusiveMaximum' are numbers"
         }
     }
 }

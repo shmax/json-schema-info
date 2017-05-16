@@ -64,6 +64,7 @@
     },
     "standard": {
         "allowBooleanSchema": {},
-        "allowIntegerWithFractionalPart": {}
+        "allowIntegerWithFractionalPart": {},
+        "exclusiveMinMaxIsNumber": {}
     }
 }
